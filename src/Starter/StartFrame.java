@@ -2,6 +2,7 @@ package Starter;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,15 +18,17 @@ import javax.swing.JPanel;
 public class StartFrame extends JFrame implements ActionListener{
 	private String title;
 	private int[] size;
-	private JPanel middlePanel;
+	private JLayeredPane middlePane;
 	private JLabel middleLabel;
+	private JLabel backgroundLabel;
 	private JButton customer;
 	private JButton manager;
 	private ImageIcon backgroundImg;
 	
 	public StartFrame() {
-		backgroundImg = new ImageIcon("RestaurantInterior2.jpeg");
-		middlePanel = new JPanel();
+		backgroundImg = new ImageIcon("Picture/RestaurantInterior2.jpeg");
+		middlePane = new JLayeredPane();
+		backgroundLabel = new JLabel();
 		middleLabel = new JLabel();
 		customer = new JButton();
 		manager = new JButton();
@@ -39,26 +42,37 @@ public class StartFrame extends JFrame implements ActionListener{
 		this.setTitle(title);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(size[0] , size[1]);
-		this.setVisible(true);
+		this.setLayout(new FlowLayout(FlowLayout.CENTER));
+		this.getContentPane().setBackground(Color.cyan);
+		this.setVisible(true);	
 		
+		pane();
+	}
+	
+	public void pane() {
+		middlePane.setSize(new Dimension(800 , 800));
+		bacground();
 		middleScreen();
+		this.add(middlePane);
+	}
+	
+	public void bacground() {
+		backgroundLabel.setIcon(backgroundImg);
+		backgroundLabel.setBackground(Color.LIGHT_GRAY);
+		//backgroundLabel.setPreferredSize(new Dimension(200 , 200));
+		backgroundLabel.setBounds(0 , 0  , 500 , 500);
+		backgroundLabel.setOpaque(true);
+		middlePane.add(backgroundLabel);
 	}
 	
 	public void middleScreen() {
-		middlePanel.setBounds(this.WIDTH / 2 , this.HEIGHT / 2 , 100 , 100);
-		middlePanel.setAlignmentX(JPanel.CENTER_ALIGNMENT);
-		middlePanel.setAlignmentY(JPanel.CENTER_ALIGNMENT);
-		middlePanel.setBackground(Color.red);
-		
-		middleLabel.setOpaque(true);
 		middleLabel.setText(title);
-		//middleLabel.setFont(new Font("MW Boli" , Font.BOLD , 25));
-		//middleLabel.setIcon(backgroundImg);
-		
-		
-		middlePanel.add(middleLabel);
-		this.add(middlePanel);
+		middleLabel.setFont(new Font("MW Boli" , Font.ITALIC , 50));
+		middleLabel.setBounds(0 , 0  , 200 , 200);
+		middleLabel.setOpaque(true);
+		middlePane.add(middleLabel);
 	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
