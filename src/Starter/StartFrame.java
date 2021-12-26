@@ -23,10 +23,9 @@ public class StartFrame extends JFrame implements ActionListener{
 	private JLabel mainTittle;
 	private JButton customer;
 	private JButton manager;
-	private ImageIcon backgroundImg;
+	private Image backgroundImg;
 	
 	public StartFrame() {
-		backgroundImg = new ImageIcon();
 		centerPanel = new JPanel();
 		mainTittle = new JLabel();
 		customer = new JButton("Customer");
