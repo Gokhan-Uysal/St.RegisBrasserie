@@ -46,10 +46,8 @@ public class StartFrame extends JFrame implements ActionListener{
 		size[0] = 1280;
 		size[1] = 720;
 		title = "Welcome to St. Regis Brasserie";
-		
+	
 		centerPanel();
-
-		
 		this.setTitle(title);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(size[0] , size[1]);
@@ -58,16 +56,18 @@ public class StartFrame extends JFrame implements ActionListener{
 		this.setResizable(false);
 		//this.pack();
 		this.setVisible(true);	
+		
+		
 	}
 	
 	public void centerPanel() {
 		centerPanel.setOpaque(true);
+		centerPanel.setLayout(new FlowLayout(FlowLayout.CENTER , 50 , 20));
 		centerPanel.setPreferredSize(new Dimension(450 , 150));
 		centerPanel.setBackground(this.getBackground().getColor(title));
-		centerPanel.setLayout(new FlowLayout(FlowLayout.CENTER , 50 , 20));
 		mainTittle();
 		Buttons();
-		this.add(centerPanel);
+		this.add(centerPanel , BorderLayout.CENTER);
 	
 	}
 	
