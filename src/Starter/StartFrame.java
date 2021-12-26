@@ -20,6 +20,8 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
+import Menu.MenuFrame;
+
 public class StartFrame extends JFrame implements ActionListener{
 	private String title;
 	private int[] size;
@@ -92,6 +94,8 @@ public class StartFrame extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if (e.getSource() == customer) {
+			MenuFrame menu = new MenuFrame();
+			menu.setBounds(this.getBounds());
 			dispose();
 		}
 		else if (e.getSource() == manager) {
