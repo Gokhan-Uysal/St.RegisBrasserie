@@ -8,15 +8,15 @@ public abstract class BaseFoods implements IFoods{
 	
 	protected String name;
 	protected int stockCount;
-	//protected float price;
+	protected float price;
 	protected ImageIcon img;
 	
 	
-	public BaseFoods(String name, int stockCount , ImageIcon img) {
+	public BaseFoods(String name, float price , ImageIcon img) {
 		super();
 		this.name = name;
-		this.stockCount = stockCount;
-		//this.price = price;
+		this.price = price;
+		this.stockCount = 0;
 		this.img = img;
 	}
 

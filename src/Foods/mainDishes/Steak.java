@@ -1,15 +1,13 @@
-package Foods.desserts;
+package Foods.mainDishes;
 
 import javax.swing.ImageIcon;
 
 import Foods.BaseFoods;
 
-public class RicePudding extends BaseFoods{
+public class Steak extends BaseFoods{
 
-	public RicePudding(String name, int stockCount, ImageIcon img) {
+	public Steak(String name, int stockCount, ImageIcon img) {
 		super(name, stockCount, img);
 		// TODO Auto-generated constructor stub
 	}
-
-	
 }
