@@ -6,9 +6,10 @@ import Foods.BaseFoods;
 
 public class Mantı extends BaseFoods{
 
-	public Mantı(String name, int stockCount, ImageIcon img) {
-		super(name, stockCount, img);
+	public Mantı(String name, float price, ImageIcon img) {
+		super(name, price, img);
 		// TODO Auto-generated constructor stub
 	}
+
 
 }

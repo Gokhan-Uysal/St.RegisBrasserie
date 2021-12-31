@@ -6,8 +6,8 @@ import Foods.BaseFoods;
 
 public class EzogelinSoup extends BaseFoods{
 
-	public EzogelinSoup(String name, int stockCount, ImageIcon img) {
-		super(name, stockCount, img);
+	public EzogelinSoup(String name, float price, ImageIcon img) {
+		super(name, price, img);
 		// TODO Auto-generated constructor stub
 	}
 

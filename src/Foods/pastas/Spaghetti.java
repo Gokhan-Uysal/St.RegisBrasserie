@@ -6,8 +6,10 @@ import Foods.BaseFoods;
 
 public class Spaghetti extends BaseFoods{
 
-	public Spaghetti(String name, int stockCount, ImageIcon img) {
-		super(name, stockCount, img);
+	public Spaghetti(String name, float price, ImageIcon img) {
+		super(name, price, img);
 		// TODO Auto-generated constructor stub
 	}
+
+
 }
