@@ -1,11 +1,12 @@
-package Foods;
+package Foods.pastas;
 
 import javax.swing.ImageIcon;
 
-public abstract class BaseDrinks extends BaseFoods{
-	
-	
-	public BaseDrinks(String name, int stockCount, ImageIcon img) {
+import Foods.BaseFoods;
+
+public class Spaghetti extends BaseFoods{
+
+	public Spaghetti(String name, int stockCount, ImageIcon img) {
 		super(name, stockCount, img);
 		// TODO Auto-generated constructor stub
 	}

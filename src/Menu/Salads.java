@@ -17,9 +17,10 @@ public class Salads{
 		return this.salads;
 	}
 	
-	BaseFoods gevurDağı;
-	BaseFoods sezar;
-	BaseFoods yedikule;
+	private BaseFoods gevurDağı;
+	private BaseFoods sezar;
+	private BaseFoods yedikule;
+	
 	public Salads() {
 		salads = new ArrayList<BaseFoods>();
 		

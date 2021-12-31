@@ -17,9 +17,9 @@ public class Soups {
 		return this.soups;
 	}
 	
-	BaseFoods chichkenSoup;
-	BaseFoods ezogelinSoup;
-	BaseFoods soupOfTheDay;
+	private BaseFoods chichkenSoup;
+	private BaseFoods ezogelinSoup;
+	private BaseFoods soupOfTheDay;
 	
 	public Soups() {
 		soups = new ArrayList<BaseFoods>();
