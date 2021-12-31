@@ -48,13 +48,13 @@ public class StartFrame extends JFrame implements ActionListener{
 		title = "Welcome to St. Regis Brasserie";
 	
 		centerPanel();
+		
 		this.setTitle(title);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(size[0] , size[1]);
 		this.getContentPane().setBackground(Color.LIGHT_GRAY);
 		this.setLayout(new FlowLayout(FlowLayout.CENTER , 200 , 275));
 		this.setResizable(false);
-		//this.pack();
 		this.setVisible(true);	
 		
 		
@@ -63,7 +63,7 @@ public class StartFrame extends JFrame implements ActionListener{
 	public void centerPanel() {
 		centerPanel.setOpaque(true);
 		centerPanel.setLayout(new FlowLayout(FlowLayout.CENTER , 50 , 20));
-		centerPanel.setPreferredSize(new Dimension(450 , 150));
+		centerPanel.setPreferredSize(new Dimension(700 , 150));
 		centerPanel.setBackground(this.getBackground().getColor(title));
 		mainTittle();
 		Buttons();
@@ -73,7 +73,7 @@ public class StartFrame extends JFrame implements ActionListener{
 	
 	public void mainTittle() {
 		mainTittle.setText("Welcome to the Sr. Regis Brasserie");
-		mainTittle.setFont(new Font("Go Mono for Powerline" , Font.ITALIC , 20));
+		mainTittle.setFont(new Font("Go Mono for Powerline" , Font.ITALIC , 30));
 		mainTittle.setForeground(Color.black);
 		centerPanel.add(mainTittle);
 	}
@@ -96,6 +96,7 @@ public class StartFrame extends JFrame implements ActionListener{
 		if (e.getSource() == customer) {
 			MenuFrame menu = new MenuFrame();
 			menu.setBounds(this.getBounds());
+			menu.setSize(720,820);
 			dispose();
 		}
 		else if (e.getSource() == manager) {
