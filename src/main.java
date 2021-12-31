@@ -1,6 +1,6 @@
 import javax.swing.ImageIcon;
 
-import Foods.AppetizerPlate;
+import Foods.starters.AppetizerPlate;
 import Menu.*;
 import Starter.StartFrame;
 

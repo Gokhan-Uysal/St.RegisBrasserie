@@ -1,10 +1,12 @@
-package Foods;
+package Foods.salads;
 
 import javax.swing.ImageIcon;
 
-public class CheesePlate extends BaseFoods{
+import Foods.BaseFoods;
 
-	public CheesePlate(String name, int stockCount, ImageIcon img) {
+public class GevurDağı extends BaseFoods{
+
+	public GevurDağı(String name, int stockCount, ImageIcon img) {
 		super(name, stockCount, img);
 		// TODO Auto-generated constructor stub
 	}
@@ -26,6 +28,6 @@ public class CheesePlate extends BaseFoods{
 		// TODO Auto-generated method stub
 		return super.checkStock();
 	}
+
 	
-	
-}
+}	
