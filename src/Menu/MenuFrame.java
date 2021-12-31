@@ -25,13 +25,6 @@ public class MenuFrame extends JFrame implements ActionListener{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 		
-		foodPanel();
-	}
-	
-	public void foodPanel() {
-		foods.setBackground(Color.magenta);
-		foods.setPreferredSize(new Dimension(100 , 200));
-		this.add(foods , BorderLayout.CENTER);
 	}
 	
 	@Override
