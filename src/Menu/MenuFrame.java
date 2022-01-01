@@ -9,6 +9,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -95,7 +96,7 @@ public class MenuFrame extends JFrame implements ActionListener{
 	}
 	
 	public void menuList() {
-		int foodCount = 12;
+		int foodCount = 6;
 		int columnFoodCount = foodCount / 2;
 		int height = columnFoodCount * 200 + (columnFoodCount - 1) * 40;
 		
@@ -107,10 +108,30 @@ public class MenuFrame extends JFrame implements ActionListener{
 	
 	public void addFood(int food) {
 		JLabel foodLabel;
+		JLabel buttonsLabel;
+		JButton addButton;
+		JButton removeButton;
+		ImageIcon addIcon = new ImageIcon();
+		ImageIcon removeIcon = new ImageIcon();
+		
 		for (int i = 0; i < food; i++) {
+			addButton = new JButton("+");
+			removeButton = new JButton("-");
+			addButton.setIcon(addIcon);
+			removeButton.setIcon(removeIcon);;
 			foodLabel = new JLabel();
+			buttonsLabel = new JLabel();
+			foodLabel.setLayout(new BorderLayout(5 , 5));
 			foodLabel.setOpaque(true);
 			foodLabel.setBackground(Color.white);
+			buttonsLabel.setOpaque(true);
+			buttonsLabel.setLayout(new FlowLayout(FlowLayout.CENTER , 90 , 10));
+			buttonsLabel.setPreferredSize(new Dimension(200 , 50));
+			addButton.setPreferredSize(new Dimension(30 , 30));
+			removeButton.setPreferredSize(new Dimension(30 , 30));
+			buttonsLabel.add(removeButton);
+			buttonsLabel.add(addButton);
+			foodLabel.add(buttonsLabel , BorderLayout.SOUTH);
 			menuPanel.add(foodLabel);
 		}
 	}
