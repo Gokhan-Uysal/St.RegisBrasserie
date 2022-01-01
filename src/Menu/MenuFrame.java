@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -12,12 +13,23 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
+import Menu.Starters;
+import Menu.Soups;
+import Menu.Salads;
+import Menu.Pastas;
+import Menu.Desserts;
+import Menu.Drinks;
+import Menu.MainDishes;
 
 public class MenuFrame extends JFrame implements ActionListener{
 	
 	private String title;
 	private JPanel buttons;
+	private JPanel menuPanel;
 	private JLabel tittleLabel;
+	private JScrollPane menuPane;
 	private JButton starters;
 	private JButton soups;
 	private JButton salads;
@@ -31,6 +43,8 @@ public class MenuFrame extends JFrame implements ActionListener{
 		//Init components
 		buttons = new JPanel();
 		tittleLabel = new JLabel();
+		menuPanel = new JPanel();
+		menuPane = new JScrollPane(menuPanel , JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED , JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		starters = new JButton("Starters");
 		soups = new JButton("Soups");
 		salads = new JButton("Salads");
@@ -41,7 +55,7 @@ public class MenuFrame extends JFrame implements ActionListener{
 		
 		menuTittle();
 		menuButtons();
-	
+		menuList();
 		
 		this.getContentPane().setBackground(Color.LIGHT_GRAY);
 		this.setTitle(title);
@@ -51,6 +65,7 @@ public class MenuFrame extends JFrame implements ActionListener{
 		this.setResizable(false);
 		this.add(tittleLabel);
 		this.add(buttons);
+		this.add(menuPane);
 	}
 	
 	
@@ -66,8 +81,8 @@ public class MenuFrame extends JFrame implements ActionListener{
 	
 	public void menuButtons() {
 		buttons.setOpaque(true);
-		buttons.setLayout(new FlowLayout(FlowLayout.CENTER , 30 , 10));
-		buttons.setPreferredSize(new Dimension(500 , 100));
+		buttons.setLayout(new FlowLayout(FlowLayout.CENTER , 10 , 10));
+		buttons.setPreferredSize(new Dimension(500 , 80));
 		buttons.setBackground(Color.LIGHT_GRAY);
 		buttons.add(starters);
 		buttons.add(soups);
@@ -75,7 +90,25 @@ public class MenuFrame extends JFrame implements ActionListener{
 		buttons.add(mainDishes);
 		buttons.add(desserts);
 		buttons.add(drinks);
+		buttons.add(pastas);
 		
+	}
+	
+	public void menuList() {
+		menuPanel.setPreferredSize(new Dimension(520 , 1200));
+		menuPanel.setLayout(new GridLayout(4 , 2 , 40 , 40));
+		menuPanel.setBackground(Color.black);
+		starterList(8);
+	}
+	
+	public void starterList(int food) {
+		JLabel foodLabel;
+		for (int i = 0; i < food; i++) {
+			foodLabel = new JLabel();
+			foodLabel.setOpaque(true);
+			foodLabel.setBackground(Color.white);
+			menuPanel.add(foodLabel);
+		}
 	}
 	
 	@Override
