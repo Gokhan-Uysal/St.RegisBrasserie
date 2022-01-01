@@ -8,6 +8,8 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -111,12 +113,12 @@ public class MenuFrame extends JFrame implements ActionListener{
 		JLabel buttonsLabel;
 		JButton addButton;
 		JButton removeButton;
-		ImageIcon addIcon = new ImageIcon();
-		ImageIcon removeIcon = new ImageIcon();
+		ImageIcon addIcon = new ImageIcon("src/Icons/icons8-add-40.png");
+		ImageIcon removeIcon = new ImageIcon("src/Icons/icons8-minus-40.png");
 		
 		for (int i = 0; i < food; i++) {
-			addButton = new JButton("+");
-			removeButton = new JButton("-");
+			addButton = new JButton();
+			removeButton = new JButton();
 			addButton.setIcon(addIcon);
 			removeButton.setIcon(removeIcon);;
 			foodLabel = new JLabel();
@@ -125,10 +127,11 @@ public class MenuFrame extends JFrame implements ActionListener{
 			foodLabel.setOpaque(true);
 			foodLabel.setBackground(Color.white);
 			buttonsLabel.setOpaque(true);
-			buttonsLabel.setLayout(new FlowLayout(FlowLayout.CENTER , 90 , 10));
-			buttonsLabel.setPreferredSize(new Dimension(200 , 50));
-			addButton.setPreferredSize(new Dimension(30 , 30));
-			removeButton.setPreferredSize(new Dimension(30 , 30));
+			buttonsLabel.setLayout(new FlowLayout(FlowLayout.CENTER , 50 , 25));
+			buttonsLabel.setPreferredSize(new Dimension(200 , 100));
+			addButton.setPreferredSize(new Dimension(50 , 50));
+			removeButton.setPreferredSize(new Dimension(50 , 50));
+			buttonsLabel.setBackground(Color.LIGHT_GRAY);
 			buttonsLabel.add(removeButton);
 			buttonsLabel.add(addButton);
 			foodLabel.add(buttonsLabel , BorderLayout.SOUTH);
