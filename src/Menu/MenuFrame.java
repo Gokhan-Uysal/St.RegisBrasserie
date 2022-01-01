@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -45,10 +46,14 @@ public class MenuFrame extends JFrame implements ActionListener{
 	private JButton mainDishes;
 	private JButton desserts;
 	private JButton drinks;
+	private JButton addButton;
+	private JButton removeButton;
 	
 	private ImageIcon addIcon;
 	private ImageIcon removeIcon;
 	
+	private JTextArea countTextArea;
+	private static int count;
 	
 	public MenuFrame(){
 		//Init components
@@ -112,7 +117,7 @@ public class MenuFrame extends JFrame implements ActionListener{
 	}
 	
 	public void menuList() {
-		int foodCount = 6;
+		int foodCount = 8;
 		int columnFoodCount = foodCount / 2;
 		int height = columnFoodCount * 200 + (columnFoodCount - 1) * 40;
 		
@@ -125,11 +130,10 @@ public class MenuFrame extends JFrame implements ActionListener{
 	public void addFood(int food) {
 		JLabel foodLabel;
 		JLabel buttonsLabel;
-		JButton addButton;
-		JButton removeButton;
-		JTextArea count;
+		
 		
 		for (int i = 0; i < food; i++) {
+			count = 0;
 			
 			addButton = new JButton();
 			removeButton = new JButton();
@@ -137,7 +141,7 @@ public class MenuFrame extends JFrame implements ActionListener{
 			foodLabel = new JLabel();
 			buttonsLabel = new JLabel();
 			
-			count = new JTextArea();
+			countTextArea = new JTextArea();
 			
 			foodLabel.setLayout(new BorderLayout(5 , 5));
 			foodLabel.setOpaque(true);
@@ -153,20 +157,39 @@ public class MenuFrame extends JFrame implements ActionListener{
 			addButton.setIcon(addIcon);
 			removeButton.setIcon(removeIcon);
 			
+			addButton.addActionListener(this);
+			removeButton.addActionListener(this);
+		
 			buttonsLabel.setBackground(Color.white);
 			buttonsLabel.add(removeButton);
-			buttonsLabel.add(count);
+			buttonsLabel.add(countTextArea);
 			buttonsLabel.add(addButton);
 			
-			count.setText("0");
+			countTextArea.setText("" + count);
 			foodLabel.add(buttonsLabel , BorderLayout.SOUTH);
 			menuPanel.add(foodLabel);
+			
 		}
+		
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		if (e.getSource() == addButton) {
+			count += 1;
+		}
+		else if (e.getSource() == removeButton) {
+			if (count != 0) {
+				count -= 1;
+			}
+		}
+		countTextArea.setText("" + count);
+	}
+
+
+	public static void incrementTextArea() {
 		
 	}
+		
 }
