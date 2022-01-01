@@ -17,6 +17,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 import Menu.Starters;
 import Menu.Soups;
@@ -29,10 +30,14 @@ import Menu.MainDishes;
 public class MenuFrame extends JFrame implements ActionListener{
 	
 	private String title;
+	
 	private JPanel buttons;
 	private JPanel menuPanel;
+	
 	private JLabel tittleLabel;
+	
 	private JScrollPane menuPane;
+	
 	private JButton starters;
 	private JButton soups;
 	private JButton salads;
@@ -41,13 +46,19 @@ public class MenuFrame extends JFrame implements ActionListener{
 	private JButton desserts;
 	private JButton drinks;
 	
+	private ImageIcon addIcon;
+	private ImageIcon removeIcon;
+	
 	
 	public MenuFrame(){
 		//Init components
 		buttons = new JPanel();
-		tittleLabel = new JLabel();
 		menuPanel = new JPanel();
+		
+		tittleLabel = new JLabel();
+		
 		menuPane = new JScrollPane(menuPanel , JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED , JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		
 		starters = new JButton("Starters");
 		soups = new JButton("Soups");
 		salads = new JButton("Salads");
@@ -55,6 +66,9 @@ public class MenuFrame extends JFrame implements ActionListener{
 		mainDishes = new JButton("Main Dishes");
 		desserts = new JButton("Desserts");
 		drinks = new JButton("Drinks");
+		
+		addIcon = new ImageIcon("src/Icons/icons8-add-40.png");
+		removeIcon = new ImageIcon("src/Icons/icons8-minus-40.png");
 		
 		menuTittle();
 		menuButtons();
@@ -113,27 +127,38 @@ public class MenuFrame extends JFrame implements ActionListener{
 		JLabel buttonsLabel;
 		JButton addButton;
 		JButton removeButton;
-		ImageIcon addIcon = new ImageIcon("src/Icons/icons8-add-40.png");
-		ImageIcon removeIcon = new ImageIcon("src/Icons/icons8-minus-40.png");
+		JTextArea count;
 		
 		for (int i = 0; i < food; i++) {
+			
 			addButton = new JButton();
 			removeButton = new JButton();
-			addButton.setIcon(addIcon);
-			removeButton.setIcon(removeIcon);;
+			
 			foodLabel = new JLabel();
 			buttonsLabel = new JLabel();
+			
+			count = new JTextArea();
+			
 			foodLabel.setLayout(new BorderLayout(5 , 5));
 			foodLabel.setOpaque(true);
-			foodLabel.setBackground(Color.white);
+			foodLabel.setBackground(Color.blue);
+			
 			buttonsLabel.setOpaque(true);
-			buttonsLabel.setLayout(new FlowLayout(FlowLayout.CENTER , 50 , 25));
-			buttonsLabel.setPreferredSize(new Dimension(200 , 100));
+			buttonsLabel.setLayout(new FlowLayout(FlowLayout.CENTER , 30 , 2));
+			buttonsLabel.setPreferredSize(new Dimension(100 , 50));
+			
 			addButton.setPreferredSize(new Dimension(50 , 50));
 			removeButton.setPreferredSize(new Dimension(50 , 50));
-			buttonsLabel.setBackground(Color.LIGHT_GRAY);
+			
+			addButton.setIcon(addIcon);
+			removeButton.setIcon(removeIcon);
+			
+			buttonsLabel.setBackground(Color.white);
 			buttonsLabel.add(removeButton);
+			buttonsLabel.add(count);
 			buttonsLabel.add(addButton);
+			
+			count.setText("0");
 			foodLabel.add(buttonsLabel , BorderLayout.SOUTH);
 			menuPanel.add(foodLabel);
 		}
