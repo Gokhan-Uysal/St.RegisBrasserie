@@ -95,13 +95,17 @@ public class MenuFrame extends JFrame implements ActionListener{
 	}
 	
 	public void menuList() {
-		menuPanel.setPreferredSize(new Dimension(520 , 1200));
-		menuPanel.setLayout(new GridLayout(4 , 2 , 40 , 40));
+		int foodCount = 12;
+		int columnFoodCount = foodCount / 2;
+		int height = columnFoodCount * 200 + (columnFoodCount - 1) * 40;
+		
+		menuPanel.setPreferredSize(new Dimension(520 , height));
+		menuPanel.setLayout(new GridLayout(columnFoodCount , 2 , 20 , 20));
 		menuPanel.setBackground(Color.black);
-		starterList(8);
+		addFood(foodCount);
 	}
 	
-	public void starterList(int food) {
+	public void addFood(int food) {
 		JLabel foodLabel;
 		for (int i = 0; i < food; i++) {
 			foodLabel = new JLabel();
