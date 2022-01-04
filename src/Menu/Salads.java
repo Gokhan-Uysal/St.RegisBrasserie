@@ -24,9 +24,9 @@ public class Salads{
 	public Salads() {
 		salads = new ArrayList<BaseFoods>();
 		
-		gevurDağı = new GevurDağı("Gevur Dağı" , 10 , new ImageIcon());
-		sezar = new Sezar("Sezar" , 10 , new ImageIcon());
-		yedikule = new Yedikule("Yedikule" , 10 , new ImageIcon());
+		gevurDağı = new GevurDağı("Gevur Dağı" , 10 , new ImageIcon("src/Pictures/FoodImg/Salads/gavurdağı salatası.jpg"));
+		sezar = new Sezar("Sezar" , 10 , new ImageIcon("src/Pictures/FoodImg/Salads/sezar salatası.jpg"));
+		yedikule = new Yedikule("Yedikule" , 10 , new ImageIcon("src/Pictures/FoodImg/Salads/yedikule salatası.jpg"));
 		
 		salads.add(gevurDağı);
 		salads.add(sezar);

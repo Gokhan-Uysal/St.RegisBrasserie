@@ -23,9 +23,9 @@ public class Soups {
 	
 	public Soups() {
 		soups = new ArrayList<BaseFoods>();
-		chichkenSoup = new ChichkenSoup("Chichken Soup" , 10 , new ImageIcon());
-		ezogelinSoup = new EzogelinSoup("Ezogelin Soup " , 10 , new ImageIcon());
-		soupOfTheDay = new SoupOfTheDay("Soup Of The Day" , 10 , new ImageIcon());
+		chichkenSoup = new ChichkenSoup("Chichken Soup" , 10 , new ImageIcon("src/Pictures/FoodImg/chicken soup.jpg"));
+		ezogelinSoup = new EzogelinSoup("Ezogelin Soup " , 10 , new ImageIcon("src/Pictures/FoodImg/ezogelin soup.jpg"));
+		soupOfTheDay = new SoupOfTheDay("Soup Of The Day" , 10 , new ImageIcon("src/Pictures/FoodImg/"));
 		
 		soups.add(chichkenSoup);
 		soups.add(ezogelinSoup);

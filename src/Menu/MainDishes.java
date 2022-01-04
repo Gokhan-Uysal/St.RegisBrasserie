@@ -24,11 +24,11 @@ public class MainDishes {
 	public MainDishes() {
 		mainDishes = new ArrayList<BaseFoods>();
 		
-		mantı = new Mantı("Mantı" , 10 , new ImageIcon());
-		meatBall = new Meatball("Meatball" , 10 , new ImageIcon());
-		seaBass = new SeaBass("Sea Bass" , 10 , new ImageIcon());
-		steak = new Steak("Cowboy Ribeye Steak" , 10 , new ImageIcon());
-		tenderloin = new Tenderloin("Grilled Tenderloin" , 10 , new ImageIcon());
+		mantı = new Mantı("Mantı" , 10 , new ImageIcon("src/Pictures/FoodImg/mantı.jpg"));
+		meatBall = new Meatball("Meatball" , 10 , new ImageIcon("src/Pictures/FoodImg/meatball"));
+		seaBass = new SeaBass("Sea Bass" , 10 , new ImageIcon("src/Pictures/FoodImg/"));
+		steak = new Steak("Cowboy Ribeye Steak" , 10 , new ImageIcon("src/Pictures/FoodImg/cowboy ribeye steak.jpg"));
+		tenderloin = new Tenderloin("Grilled Tenderloin" , 10 , new ImageIcon("src/Pictures/FoodImg/grilled tenderlion.jpg"));
 		
 		mainDishes.add(mantı);
 		mainDishes.add(meatBall);

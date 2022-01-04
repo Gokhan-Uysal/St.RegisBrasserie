@@ -29,14 +29,14 @@ public class Drinks {
 	public Drinks() {
 		drinks = new ArrayList<BaseDrinks>();
 		
-		cokeZero = new Coke("Coca Cola Zero" , 10 , new ImageIcon() , "America");
-		coke = new Coke("Coca Cola" , 10 , new ImageIcon() , "America");
-		water = new Water("Erikli Water" , 10 , new ImageIcon() , "Turkey");
-		soda = new Soda("Niğde Sparkling Water" , 10 , new ImageIcon() , "Turkey");
-		champagne = new Champagne("G.H. Mumm. Cordon Rouge Brut. Champagne" , 10 , new ImageIcon() , "France");
-		red = new Red("Château Kaloak Red" , 10 , new ImageIcon() , "Turkey");
-		white = new White("Terre Rosse, Pinot Grigio White" , 10 , new ImageIcon() , "Italy");
-		rose = new Rose("Château d'Esclans, Whisperina Angel Rosé" , 10 , new ImageIcon() , "France");
+		cokeZero = new Coke("Coca Cola Zero" , 10 , new ImageIcon("src/Pictures/FoodImg/Drinks/i (1).jpg") , "America");
+		coke = new Coke("Coca Cola" , 10 , new ImageIcon("src/Pictures/FoodImg/Drinks/i.jpg") , "America");
+		water = new Water("Erikli Water" , 10 , new ImageIcon("src/Pictures/FoodImg/Drinks/i (4).jpg") , "Turkey");
+		soda = new Soda("Niğde Sparkling Water" , 10 , new ImageIcon("src/Pictures/FoodImg/Drinks/Nigde Soda.jpg") , "Turkey");
+		champagne = new Champagne("G.H. Mumm. Cordon Rouge Brut. Champagne" , 10 , new ImageIcon("src/Pictures/FoodImg/Drinks/g.h mumm cordon rouge.jpg") , "France");
+		red = new Red("Château Kaloak Red" , 10 , new ImageIcon("src/Pictures/FoodImg/Drinks/chateau kaloak red.jpg") , "Turkey");
+		white = new White("Terre Rosse, Pinot Grigio White" , 10 , new ImageIcon("src/Pictures/FoodImg/Drinks/terre rosse pinot grigio white.jpg") , "Italy");
+		rose = new Rose("Château d'Esclans, Whisperina Angel Rosé" , 10 , new ImageIcon("src/Pictures/FoodImg/Drinks/chateau d_esclans, whispering angels rose.jpg") , "France");
 		
 		drinks.add(coke);
 		drinks.add(cokeZero);

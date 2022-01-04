@@ -24,10 +24,10 @@ public class Pastas {
 	private BaseFoods tortellini;
 	
 	public Pastas() {
-		spaghetti = new Spaghetti("Spaghetti Al Ragu" , 10 , new ImageIcon());
-		penne = new Penne("Penne Primavera" , 10 , new ImageIcon());
-		fettuccine = new Fettuccine("Fettuccine Alfredo" , 10 , new ImageIcon());
-		tortellini = new Tortellini("Seafood Tortellini" , 10 , new ImageIcon());
+		spaghetti = new Spaghetti("Spaghetti Al Ragu" , 10 , new ImageIcon("src/Pictures/FoodImg/Pastas/spaghetti al ragu.jpg"));
+		penne = new Penne("Penne Primavera" , 10 , new ImageIcon("src/Pictures/FoodImg/Pastas/penne primavera.jpg"));
+		fettuccine = new Fettuccine("Fettuccine Alfredo" , 10 , new ImageIcon("src/Pictures/FoodImg/Pastas/fettuccine alfredo.jpg"));
+		tortellini = new Tortellini("Seafood Tortellini" , 10 , new ImageIcon("src/Pictures/FoodImg/Pastas/seafood tortellini.jpg"));
 		
 		pastas.add(spaghetti);
 		pastas.add(penne);
