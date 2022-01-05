@@ -43,8 +43,8 @@ public class MenuFrame extends JFrame implements ActionListener{
 	
 	private JScrollPane menuPane;
 	
-	private JComboBox buttonBox;
-	private ArrayList<String> buttons;
+	private JComboBox<String> buttonBox;
+	private ArrayList<JPanel> currentPanels;
 	
 	private JPanel mainPanel;
 	private JPanel startersPanel;
@@ -62,28 +62,38 @@ public class MenuFrame extends JFrame implements ActionListener{
 		tittleLabel = new JLabel();
 		
 		mainPanel = new JPanel();
-		buttons = new ArrayList<String>();
+		buttonBox = new JComboBox<String>();
+		currentPanels = new ArrayList<JPanel>();
 		
 		startersPanel = new StartersList();
-		//saladsPanel = new SaladsList();
-		//soupsPanel = new SoupsList();
-		//pastasPanel = new PastasList();
-		//mainDishesPanel = new MainDishesList();
-		//drinksPanel = new DrinksList();
-		//dessertsPanel = new DessertsList();
+		saladsPanel = new SaladsList();
+		soupsPanel = new SoupsList();
+		pastasPanel = new PastasList();
+		mainDishesPanel = new MainDishesList();
+		drinksPanel = new DrinksList();
+		dessertsPanel = new DessertsList();
+		
+		currentPanels.add(startersPanel);
+		currentPanels.add(saladsPanel);
+		currentPanels.add(soupsPanel);
+		currentPanels.add(pastasPanel);
+		currentPanels.add(mainDishesPanel);
+		currentPanels.add(drinksPanel);
+		currentPanels.add(dessertsPanel);
 		
 		menuPane = new JScrollPane(mainPanel , JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED , JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
-		menuTittle();
-		menuButtons();
+		
 		mainPanel();
+		menuTittle();
+		menubuttonBox();
 
 		
 		this.getContentPane().setBackground(Color.LIGHT_GRAY);
 		this.setTitle(title);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
-		this.setResizable(true);
+		this.setResizable(false);
 		this.add(menuPane);
 	
 	}
@@ -92,7 +102,17 @@ public class MenuFrame extends JFrame implements ActionListener{
 		mainPanel.setLayout(new BorderLayout(20 , 20));
 		mainPanel.setBorder(new EmptyBorder(10 , 100 , 20 , 100));
 		mainPanel.add(headerPanel , BorderLayout.NORTH);
+		
+		
+		mainPanel.add(saladsPanel , BorderLayout.CENTER);
+		mainPanel.add(soupsPanel , BorderLayout.CENTER);
+		mainPanel.add(pastasPanel , BorderLayout.CENTER);
+		mainPanel.add(mainDishesPanel , BorderLayout.CENTER);
+		mainPanel.add(drinksPanel , BorderLayout.CENTER);
+		mainPanel.add(dessertsPanel , BorderLayout.CENTER);
 		mainPanel.add(startersPanel , BorderLayout.CENTER);
+
+		setVisible(startersPanel);
 	}
 	
 	public void menuTittle() {
@@ -106,33 +126,60 @@ public class MenuFrame extends JFrame implements ActionListener{
 	}
 	
 	
-	public void menuButtons() {
+	public void menubuttonBox() {
 		headerPanel.setOpaque(true);
 		headerPanel.setLayout(new BorderLayout(20 , 20));
 		headerPanel.setPreferredSize(new Dimension(500 , 80));
 		headerPanel.setBackground(Color.LIGHT_GRAY);
 		headerPanel.add(tittleLabel , BorderLayout.NORTH);
 		
-		buttons.add("Starters");
-		buttons.add("Soups");
-		buttons.add("Salads");
-		buttons.add("Pastas");
-		buttons.add("Main Dishes");
-		buttons.add("Desserts");
-		buttons.add("Drinks");
+		buttonBox.addItem("Starters");
+		buttonBox.addItem("Soups");
+		buttonBox.addItem("Salads");
+		buttonBox.addItem("Pastas");
+		buttonBox.addItem("Main Dishes");
+		buttonBox.addItem("Desserts");
+		buttonBox.addItem("Drinks");
 		
-		buttonBox = new JComboBox(buttons.toArray());
+		buttonBox.addActionListener(this);
 		headerPanel.add(buttonBox , BorderLayout.CENTER);
 		
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == buttonBox) {
+			String type = buttonBox.getSelectedItem().toString();
+			if (type == "Starters") {
+				setVisible(startersPanel);
+			}
+			else if (type == "Soups") {
+				setVisible(soupsPanel);
+			}
+			else if (type == "Salads") {
+				setVisible(saladsPanel);
+			}
+			else if (type == "Pastas") {
+				setVisible(pastasPanel);
+			}
+			else if (type == "Main Dishes") {
+				setVisible(mainDishesPanel);
+			}
+			else if (type == "Desserts") {
+				setVisible(dessertsPanel);
+			}
+			else if (type == "Drinks") {
+				setVisible(drinksPanel);
+			}
+		}
 	}
-
-
-	public static void incrementTextArea() {
-		
+	
+	public void setVisible(JPanel visiblePanel) {
+		for (JPanel p : currentPanels) {
+			if (p != visiblePanel) {
+				p.setVisible(false);
+			}
+		}
+		visiblePanel.setVisible(true);
 	}
-		
 }

@@ -3,7 +3,10 @@ package Menu.menuFrame;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 
+import javax.swing.JLabel;
+
 import Menu.Pastas;
+import Menu.Starters;
 
 public class PastasList extends BaseList{
 	
@@ -23,6 +26,17 @@ public class PastasList extends BaseList{
 		this.setLayout(new GridLayout(this.columnCount , 2));
 		this.setPreferredSize(new Dimension(520 , height));
 
-		super.makeList();
+		makeList();
+	}
+
+	@Override
+	public void makeList() {
+		// TODO Auto-generated method stub
+		JLabel foodLabel;
+		for (int i = 0; i < this.foodCount; i++) {
+			foodLabel = new FoodPanel(((Pastas) foods).getList().get(i));
+			this.add(foodLabel);
+			
+		}
 	}
 }

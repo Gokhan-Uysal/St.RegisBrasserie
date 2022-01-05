@@ -24,71 +24,12 @@ public abstract class BaseList extends JPanel{
 	protected int height;
 	
 	public BaseList() {
-		downCast();
 		foodCount = 0;
 		columnCount = 0;
 		height = 0;
 		this.setBackground(Color.LIGHT_GRAY);
 	}
 	
-	public void makeList() {
-		// TODO Auto-generated method stub
-				JLabel foodLabel;
-				for (int i = 0; i < this.foodCount; i++) {
-					foodLabel = new FoodPanel(((Starters) foods).getList().get(i));
-					this.add(foodLabel);
-					
-				}
-	}
-	
-	public void downCast() {
-		try {
-			this.foods = (Starters) foods;
-		}
-		catch(ClassCastException e) {
-			System.err.println(e);
-		}
-		
-		try {
-			this.foods = (Salads) foods;
-		}
-		catch(ClassCastException e) {
-			System.err.println(e);
-		}
-		
-		try {
-			this.foods = (Soups) foods;
-		}
-		catch(ClassCastException e) {
-			System.err.println(e);
-		}
-		
-		try {
-			this.foods = (Pastas) foods;
-		}
-		catch(ClassCastException e) {
-			System.err.println(e);
-		}
-		
-		try {
-			this.foods = (MainDishes) foods;
-		}
-		catch(ClassCastException e) {
-			System.err.println(e);
-		}
-		
-		try {
-			this.foods = (Drinks) foods;
-		}
-		catch(ClassCastException e) {
-			System.err.println(e);
-		}
-		
-		try {
-			this.foods = (Desserts) foods;
-		}
-		catch(ClassCastException e) {
-			System.err.println(e);
-		}
-	}
+	public abstract void makeList();
+
 }
