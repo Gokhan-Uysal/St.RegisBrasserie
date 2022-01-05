@@ -47,8 +47,8 @@ public class FoodPanel extends JLabel implements ActionListener{
 		subLabel = new JLabel();
 		imgLabel = new JLabel();
 		
-		addIcon = new ImageIcon("src/Icons/icons8-add-40.png");
-		removeIcon = new ImageIcon("src/Icons/icons8-minus-40.png");
+		addIcon = new ImageIcon("src/Pictures/Icons/icons8-add-40.png");
+		removeIcon = new ImageIcon("src/Pictures/Icons/icons8-minus-40.png");
 		foodImage = food.getImg();
 		
 		countText = new JTextArea();
@@ -91,6 +91,7 @@ public class FoodPanel extends JLabel implements ActionListener{
 	
 	public void imgLabel() {
 		imgLabel.setOpaque(true);
+		imgLabel.setHorizontalAlignment(JLabel.CENTER);
 		imgLabel.setIcon(foodImage);
 	}
 	@Override
@@ -98,10 +99,12 @@ public class FoodPanel extends JLabel implements ActionListener{
 		// TODO Auto-generated method stub
 		if (e.getSource() == addButton) {
 			count += 1;
+			MenuFrame.setTotalCost(MenuFrame.getTotalCost() + food.getPrice());
 		}
 		else if (e.getSource() == removeButton) {
 			if (count > 0) {
 				count -= 1;
+				MenuFrame.setTotalCost(MenuFrame.getTotalCost() - food.getPrice());
 			}
 		}
 		countText.setText("" + count);

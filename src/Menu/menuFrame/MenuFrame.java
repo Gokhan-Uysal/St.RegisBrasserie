@@ -40,11 +40,14 @@ public class MenuFrame extends JFrame implements ActionListener{
 	private JPanel headerPanel;
 	
 	private JLabel tittleLabel;
+	private JLabel costLabel;
 	
 	private JScrollPane menuPane;
 	
 	private JComboBox<String> buttonBox;
 	private ArrayList<JPanel> currentPanels;
+	
+	private ImageIcon cart;
 	
 	private JPanel mainPanel;
 	private JPanel startersPanel;
@@ -55,15 +58,28 @@ public class MenuFrame extends JFrame implements ActionListener{
 	private JPanel drinksPanel;
 	private JPanel dessertsPanel;
 	
+	private static float totalCost;
+	
+	public static float getTotalCost() {
+		return totalCost;
+	}
+
+	public static void setTotalCost(float totalCost) {
+		MenuFrame.totalCost = totalCost;
+	}
+
 	public MenuFrame(){
 		//Init components
 		headerPanel = new JPanel();
 		
 		tittleLabel = new JLabel();
+		costLabel = new JLabel();
 		
 		mainPanel = new JPanel();
 		buttonBox = new JComboBox<String>();
 		currentPanels = new ArrayList<JPanel>();
+		
+		cart = new ImageIcon("src/Pictures/Icons/icons8-shopping-30.png");
 		
 		startersPanel = new StartersList();
 		saladsPanel = new SaladsList();
@@ -85,7 +101,6 @@ public class MenuFrame extends JFrame implements ActionListener{
 
 		
 		mainPanel();
-		menuTittle();
 		menubuttonBox();
 
 		
@@ -101,17 +116,10 @@ public class MenuFrame extends JFrame implements ActionListener{
 	public void mainPanel() {
 		mainPanel.setLayout(new BorderLayout(20 , 20));
 		mainPanel.setBorder(new EmptyBorder(10 , 100 , 20 , 100));
+		menuTittle();
 		mainPanel.add(headerPanel , BorderLayout.NORTH);
 		
 		
-		mainPanel.add(saladsPanel , BorderLayout.CENTER);
-		mainPanel.add(soupsPanel , BorderLayout.CENTER);
-		mainPanel.add(pastasPanel , BorderLayout.CENTER);
-		mainPanel.add(mainDishesPanel , BorderLayout.CENTER);
-		mainPanel.add(drinksPanel , BorderLayout.CENTER);
-		mainPanel.add(dessertsPanel , BorderLayout.CENTER);
-		mainPanel.add(startersPanel , BorderLayout.CENTER);
-
 		setVisible(startersPanel);
 	}
 	
@@ -125,6 +133,16 @@ public class MenuFrame extends JFrame implements ActionListener{
 
 	}
 	
+	public void costLabel() {
+		costLabel.setOpaque(true);
+		costLabel.setPreferredSize(new Dimension(120 , 40));
+		costLabel.setLayout(new GridLayout(1 , 2));
+		costLabel.setText("" + totalCost);
+		costLabel.setIcon(cart);
+		costLabel.setBackground(Color.LIGHT_GRAY);
+		costLabel.setIconTextGap(10);
+		costLabel.setVerticalAlignment(JLabel.CENTER);
+	}
 	
 	public void menubuttonBox() {
 		headerPanel.setOpaque(true);
@@ -133,6 +151,8 @@ public class MenuFrame extends JFrame implements ActionListener{
 		headerPanel.setBackground(Color.LIGHT_GRAY);
 		headerPanel.add(tittleLabel , BorderLayout.NORTH);
 		
+		costLabel();
+		headerPanel.add(costLabel , BorderLayout.EAST);
 		buttonBox.addItem("Starters");
 		buttonBox.addItem("Soups");
 		buttonBox.addItem("Salads");
@@ -178,8 +198,10 @@ public class MenuFrame extends JFrame implements ActionListener{
 		for (JPanel p : currentPanels) {
 			if (p != visiblePanel) {
 				p.setVisible(false);
+				mainPanel.remove(p);
 			}
 		}
+		mainPanel.add(visiblePanel , BorderLayout.CENTER);
 		visiblePanel.setVisible(true);
 	}
 }
