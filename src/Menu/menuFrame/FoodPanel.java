@@ -53,6 +53,8 @@ public class FoodPanel extends JLabel implements ActionListener{
 		
 		countText = new JTextArea();
 		foodText = new JTextArea();
+		countText.setEditable(false);
+		foodText.setEditable(false);
 		
 		count = 0;
 		
@@ -94,6 +96,7 @@ public class FoodPanel extends JLabel implements ActionListener{
 		imgLabel.setHorizontalAlignment(JLabel.CENTER);
 		imgLabel.setIcon(foodImage);
 	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
@@ -105,6 +108,7 @@ public class FoodPanel extends JLabel implements ActionListener{
 			if (count > 0) {
 				count -= 1;
 				MenuFrame.setTotalCost(MenuFrame.getTotalCost() - food.getPrice());
+				MenuFrame.checkoutText += food.getName() + " " + "x1" + "\n";
 			}
 		}
 		countText.setText("" + count);

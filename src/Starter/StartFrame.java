@@ -94,7 +94,7 @@ public class StartFrame extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if (e.getSource() == customer) {
-			MenuFrame menu = new MenuFrame();
+			MenuFrame menu = new MenuFrame("Gökhan Uysal" , 123);
 			menu.setBounds(this.getBounds());
 			menu.setSize(720,820);
 			dispose();

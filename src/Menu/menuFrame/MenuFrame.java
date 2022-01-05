@@ -15,9 +15,15 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
+
+import Starter.StartFrame;
 
 
 public class MenuFrame extends JFrame implements ActionListener{
@@ -45,7 +51,17 @@ public class MenuFrame extends JFrame implements ActionListener{
 	private JPanel drinksPanel;
 	private JPanel dessertsPanel;
 	
+	private JMenuBar menuBar;
+	private JMenu checkout;
+	private JMenu profile;
+	private JMenuItem pay;
+	private JMenuItem splitCheck;
+	
+	private JTextArea userName;
+	private JTextArea seasionNumber;
+	
 	private static float totalCost;
+	protected static String checkoutText;
 	
 	public static float getTotalCost() {
 		return totalCost;
@@ -55,7 +71,7 @@ public class MenuFrame extends JFrame implements ActionListener{
 		MenuFrame.totalCost = totalCost;
 	}
 
-	public MenuFrame(){
+	public MenuFrame(String userName , int seasionNumber){
 		//Init components
 		headerPanel = new JPanel();
 		
@@ -66,7 +82,19 @@ public class MenuFrame extends JFrame implements ActionListener{
 		buttonBox = new JComboBox<String>();
 		currentPanels = new ArrayList<JPanel>();
 		
+		menuBar = new JMenuBar();
+		checkout = new JMenu("Checkout");
+		profile = new JMenu("Profile");
+		pay = new JMenuItem("Pay");
+		splitCheck = new JMenuItem("Split Check");
+		
 		cart = new ImageIcon("src/Pictures/Icons/icons8-shopping-30.png");
+		checkoutText = "";
+		
+		this.userName = new JTextArea();
+		this.seasionNumber = new JTextArea();
+		this.userName.setEditable(false);
+		this.seasionNumber.setEditable(false);
 		
 		startersPanel = new StartersList();
 		saladsPanel = new SaladsList();
@@ -86,10 +114,12 @@ public class MenuFrame extends JFrame implements ActionListener{
 		
 		menuPane = new JScrollPane(mainPanel , JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED , JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
+		this.userName.setText("  User: " + userName + " ");
+		this.seasionNumber.setText("  Seasion Number: " + seasionNumber + " ");
 		
 		mainPanel();
 		menubuttonBox();
-
+		menuBar();
 		
 		this.getContentPane().setBackground(Color.LIGHT_GRAY);
 		this.setTitle(title);
@@ -97,6 +127,7 @@ public class MenuFrame extends JFrame implements ActionListener{
 		this.setVisible(true);
 		this.setResizable(false);
 		this.add(menuPane);
+		this.setJMenuBar(menuBar);
 	
 	}
 	
@@ -152,6 +183,20 @@ public class MenuFrame extends JFrame implements ActionListener{
 		headerPanel.add(buttonBox , BorderLayout.CENTER);
 		
 	}
+	
+	public void menuBar() {
+		pay.addActionListener(this);
+		splitCheck.addActionListener(this);
+		
+		checkout.add(pay);
+		checkout.add(splitCheck);
+		
+		profile.add(userName);
+		profile.add(seasionNumber);
+		
+		menuBar.add(profile);
+		menuBar.add(checkout);
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -179,6 +224,16 @@ public class MenuFrame extends JFrame implements ActionListener{
 				setVisible(drinksPanel);
 			}
 		}
+		
+		if (totalCost > 0) {
+			if (e.getSource() == pay) {
+				System.out.println("Your bill has been printed");
+			}
+			else if (e.getSource() == splitCheck) {
+				System.out.println("Your bill hase been splitted and printed");
+			}
+		}
+		
 	}
 	
 	public void setVisible(JPanel visiblePanel) {
