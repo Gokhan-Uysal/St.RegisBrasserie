@@ -23,7 +23,7 @@ public class SoupsList extends BaseList{
 		
 		this.height = columnCount * 200 + (columnCount - 1) * 40;
 		
-		this.setLayout(new GridLayout(this.columnCount , 2));
+		this.setLayout(new GridLayout(this.columnCount , 2 ,  5 , 5));
 		this.setPreferredSize(new Dimension(520 , height));
 
 		makeList();

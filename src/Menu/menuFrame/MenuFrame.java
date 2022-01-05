@@ -73,6 +73,12 @@ public class MenuFrame extends JFrame implements ActionListener{
 	public static void setTotalCost(float totalCost) {
 		MenuFrame.totalCost = totalCost;
 	}
+	
+	public static Color backgroundColor = new Color(0x5C2018);
+	public static Color foregroundColor = new Color(0xBC4639);
+	public static Color textColor = new Color(0xF3E0DC);
+	public static Color buttonColor = new Color(0x4285F4);
+	public static Color labelColor = new Color(0xD4A59A);
 
 	public MenuFrame(String userName , int seasionNumber){
 		//Init components
@@ -124,7 +130,7 @@ public class MenuFrame extends JFrame implements ActionListener{
 		menubuttonBox();
 		menuBar();
 		
-		this.getContentPane().setBackground(Color.LIGHT_GRAY);
+		this.getContentPane().setBackground(backgroundColor);
 		this.setTitle(title);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
@@ -137,6 +143,7 @@ public class MenuFrame extends JFrame implements ActionListener{
 	public void mainPanel() {
 		mainPanel.setLayout(new BorderLayout(20 , 20));
 		mainPanel.setBorder(new EmptyBorder(10 , 100 , 20 , 100));
+		mainPanel.setBackground(foregroundColor);
 		menuTittle();
 		mainPanel.add(headerPanel , BorderLayout.NORTH);
 		
@@ -151,6 +158,7 @@ public class MenuFrame extends JFrame implements ActionListener{
 		tittleLabel.setHorizontalTextPosition(JLabel.CENTER);
 		tittleLabel.setHorizontalAlignment(JLabel.CENTER);
 		tittleLabel.setFont(new Font("Go Mono for Powerline", Font.ITALIC, 30));
+		tittleLabel.setForeground(Color.white);
 
 	}
 	
@@ -160,7 +168,8 @@ public class MenuFrame extends JFrame implements ActionListener{
 		costLabel.setLayout(new GridLayout(1 , 2));
 		costLabel.setText("" + totalCost + "₺");
 		costLabel.setIcon(cart);
-		costLabel.setBackground(Color.LIGHT_GRAY);
+		costLabel.setBackground(buttonColor);
+		costLabel.setForeground(Color.white);
 		costLabel.setIconTextGap(10);
 		costLabel.setVerticalAlignment(JLabel.CENTER);
 	}
@@ -170,7 +179,7 @@ public class MenuFrame extends JFrame implements ActionListener{
 		headerPanel.setLayout(new BorderLayout(20 , 20));
 		headerPanel.setBorder(new EmptyBorder(5 , 20 , 5 , 20));
 		headerPanel.setPreferredSize(new Dimension(500 , 100));
-		headerPanel.setBackground(Color.LIGHT_GRAY);
+		headerPanel.setBackground(buttonColor);
 		headerPanel.add(tittleLabel , BorderLayout.NORTH);
 		
 		costLabel();
@@ -200,6 +209,7 @@ public class MenuFrame extends JFrame implements ActionListener{
 		
 		menuBar.add(profile);
 		menuBar.add(checkout);
+		
 	}
 	
 	public void printBill() throws FileNotFoundException {

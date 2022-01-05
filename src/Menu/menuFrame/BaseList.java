@@ -27,7 +27,7 @@ public abstract class BaseList extends JPanel{
 		foodCount = 0;
 		columnCount = 0;
 		height = 0;
-		this.setBackground(Color.LIGHT_GRAY);
+		this.setBackground(MenuFrame.foregroundColor);
 	}
 	
 	public abstract void makeList();

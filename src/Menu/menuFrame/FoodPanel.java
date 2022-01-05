@@ -4,21 +4,24 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Map;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
+import javax.swing.JTextPane;
+import javax.swing.border.EmptyBorder;
 
 import Foods.BaseFoods;
 
 public class FoodPanel extends JLabel implements ActionListener{
 
 	//Text areas
-	private JTextArea countText;
 	private JTextArea foodText;
 	
 	//Buttons
@@ -33,6 +36,7 @@ public class FoodPanel extends JLabel implements ActionListener{
 	//Buttons label
 	private JLabel subLabel;
 	private JLabel imgLabel;
+	private JLabel countLabel;
 	
 	//Food
 	private BaseFoods food;
@@ -47,14 +51,13 @@ public class FoodPanel extends JLabel implements ActionListener{
 		
 		subLabel = new JLabel();
 		imgLabel = new JLabel();
+		countLabel = new JLabel();
 		
 		addIcon = new ImageIcon("src/Pictures/Icons/icons8-add-40.png");
 		removeIcon = new ImageIcon("src/Pictures/Icons/icons8-minus-40.png");
 		foodImage = food.getImg();
 		
-		countText = new JTextArea();
 		foodText = new JTextArea();
-		countText.setEditable(false);
 		foodText.setEditable(false);
 		
 		count = 0;
@@ -64,6 +67,7 @@ public class FoodPanel extends JLabel implements ActionListener{
 		
 		this.setLayout(new BorderLayout(5  ,5));
 		this.setOpaque(true);
+		this.setBackground(MenuFrame.labelColor);
 		this.add(subLabel , BorderLayout.SOUTH);
 		this.add(imgLabel , BorderLayout.CENTER);
 		
@@ -72,30 +76,36 @@ public class FoodPanel extends JLabel implements ActionListener{
 	
 	public void subLabel() {
 		subLabel.setOpaque(true);
-		subLabel.setLayout(new FlowLayout(FlowLayout.CENTER , 20 , 2));
+		subLabel.setLayout(new GridLayout( 1 , 3, 10 , 10));
 		subLabel.setPreferredSize(new Dimension(100 , 50));
 		
-		addButton.setPreferredSize(new Dimension(50 , 50));
-		removeButton.setPreferredSize(new Dimension(50 , 50));
-		
+	
 		addButton.setIcon(addIcon);
 		removeButton.setIcon(removeIcon);
 		
+		addButton.setBackground(MenuFrame.labelColor);
+		removeButton.setBackground(MenuFrame.labelColor);
+		
 		addButton.addActionListener(this);
 		removeButton.addActionListener(this);
-	
-		countText.setText("" + count);
 		
-		subLabel.setBackground(Color.white);
+		countLabel.setText(" " + count + " ");
+		countLabel.setHorizontalAlignment(JLabel.CENTER);
+		
+		subLabel.setBackground(MenuFrame.labelColor);
+		subLabel.setBorder(new EmptyBorder(2 , 20 , 2 , 20));
+		
 		subLabel.add(removeButton);
-		subLabel.add(countText);
+		subLabel.add(countLabel);
 		subLabel.add(addButton);
+		
 	}
 	
 	public void imgLabel() {
 		imgLabel.setOpaque(true);
 		imgLabel.setHorizontalAlignment(JLabel.CENTER);
 		imgLabel.setIcon(foodImage);
+		imgLabel.setBackground(MenuFrame.labelColor);
 	}
 	
 	@Override
@@ -111,7 +121,7 @@ public class FoodPanel extends JLabel implements ActionListener{
 				MenuFrame.setTotalCost(MenuFrame.getTotalCost() - food.getPrice());
 			}
 		}
-		countText.setText("" + count);
+		countLabel.setText(" " + count + " ");
 		MenuFrame.costLabel.setText("" + MenuFrame.getTotalCost() + "₺");
 	}
 }

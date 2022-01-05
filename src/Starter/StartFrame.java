@@ -24,11 +24,16 @@ import Menu.menuFrame.MenuFrame;
 
 public class StartFrame extends JFrame implements ActionListener{
 	private String title;
+	
 	private int[] size;
+	
 	private JPanel centerPanel;
+	
 	private JLabel mainTittle;
+	
 	private JButton customer;
 	private JButton manager;
+	
 	private ImageIcon backgroundImg;
 	
 	public StartFrame() {
