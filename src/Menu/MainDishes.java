@@ -30,7 +30,7 @@ public class MainDishes extends FoodTypes{
 		
 		mantı = new Mantı("Mantı" , 70 , new ImageIcon("src/Pictures/FoodImg/Main Course/manti.jpg"));
 		meatBall = new Meatball("Meatball" , 80 , new ImageIcon("src/Pictures/FoodImg/Main Course/meatball.jpg"));
-		seaBass = new SeaBass("Sea Bass" , 110 , new ImageIcon("src/Pictures/FoodImg/"));
+		seaBass = new SeaBass("Sea Bass" , 110 , new ImageIcon("src/Pictures/FoodImg/Main Course/seaBass.jpg"));
 		steak = new Steak("Cowboy Ribeye Steak" , 260 , new ImageIcon("src/Pictures/FoodImg/Main Course/cowboyRibeyeSteak.jpg"));
 		tenderloin = new Tenderloin("Grilled Tenderloin" , 140 , new ImageIcon("src/Pictures/FoodImg/Main Course/grilledTenderlion.jpg"));
 		

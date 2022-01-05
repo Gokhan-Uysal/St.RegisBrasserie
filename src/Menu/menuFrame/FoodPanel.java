@@ -85,6 +85,8 @@ public class FoodPanel extends JLabel implements ActionListener{
 		
 		addButton.setBackground(MenuFrame.labelColor);
 		removeButton.setBackground(MenuFrame.labelColor);
+		addButton.setBorderPainted(false);
+		removeButton.setBorderPainted(false);
 		
 		addButton.addActionListener(this);
 		removeButton.addActionListener(this);

@@ -1,3 +1,5 @@
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.sql.SQLException;
 
 import javax.swing.ImageIcon;
@@ -8,8 +10,11 @@ import Starter.StartFrame;
 import Stocks.StockManager;
 
 public class main {
+	
 
+	
 	public static void main(String[] args) {
+		
 		StartFrame startFrame = new StartFrame();
 	}
 

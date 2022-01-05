@@ -5,7 +5,10 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
@@ -44,6 +47,7 @@ public class MenuFrame extends JFrame implements ActionListener{
 	private ArrayList<JPanel> currentPanels;
 	
 	private ImageIcon cart;
+	private Image backgroundImg;
 	
 	private JPanel mainPanel;
 	private JPanel startersPanel;
@@ -98,6 +102,8 @@ public class MenuFrame extends JFrame implements ActionListener{
 		splitCheck = new JMenuItem("Split Check");
 		
 		cart = new ImageIcon("src/Pictures/Icons/icons8-shopping-30.png");
+		
+		
 		checkoutText = "";
 		
 		this.userName = new JTextArea();
@@ -146,7 +152,6 @@ public class MenuFrame extends JFrame implements ActionListener{
 		mainPanel.setBackground(foregroundColor);
 		menuTittle();
 		mainPanel.add(headerPanel , BorderLayout.NORTH);
-		
 		
 		setVisible(startersPanel);
 	}
@@ -262,6 +267,8 @@ public class MenuFrame extends JFrame implements ActionListener{
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+				this.dispose();
+				System.exit(0);
 				 
 			}
 			else if (e.getSource() == splitCheck) {
@@ -281,4 +288,8 @@ public class MenuFrame extends JFrame implements ActionListener{
 		mainPanel.add(visiblePanel , BorderLayout.CENTER);
 		visiblePanel.setVisible(true);
 	}
+
+
+	
+	
 }

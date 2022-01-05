@@ -7,6 +7,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -19,6 +20,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
 import Menu.menuFrame.MenuFrame;
 
@@ -27,72 +29,101 @@ public class StartFrame extends JFrame implements ActionListener{
 	
 	private int[] size;
 	
-	private JPanel centerPanel;
+	private JLabel backgroundLabel;
+	private JLabel centerLabel;
+	private JLabel buttonsLabel;
+	
+	private JLayeredPane layeredPane;
 	
 	private JLabel mainTittle;
 	
 	private JButton customer;
 	private JButton manager;
 	
-	private ImageIcon backgroundImg;
+	ImageIcon backgroundImg;
 	
 	public StartFrame() {
-		centerPanel = new JPanel();
-		mainTittle = new JLabel();
+		
 		customer = new JButton("Customer");
 		manager = new JButton("Manager");
-		backgroundImg = new ImageIcon();
-		customer.addActionListener(this);
-		manager.addActionListener(this);
+			
+		backgroundImg = new ImageIcon("src/Pictures/PlaceImg/RestaurantInterior.jpeg");
+		backgroundLabel = new JLabel(backgroundImg);
 		
+		backgroundLabel.setBounds( 0 , 0  , backgroundImg.getIconWidth(), backgroundImg.getIconHeight());
+		mainTittle = new JLabel();
+		centerLabel = new JLabel();
+		buttonsLabel = new JLabel();
 		
+		layeredPane = new JLayeredPane();
 		
-		size = new int[2];
-		size[0] = 1280;
-		size[1] = 720;
 		title = "Welcome to St. Regis Brasserie";
-	
-		centerPanel();
 		
+		centerLabel();
+		
+		
+		this.add(layeredPane);
 		this.setTitle(title);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(size[0] , size[1]);
-		this.getContentPane().setBackground(Color.LIGHT_GRAY);
-		this.setLayout(new FlowLayout(FlowLayout.CENTER , 200 , 275));
 		this.setResizable(false);
 		this.setVisible(true);	
-		
+		this.setLayout(null);
+		this.setSize(backgroundImg.getIconWidth() , backgroundImg.getIconHeight());
+		layeredPane();
 		
 	}
 	
-	public void centerPanel() {
-		centerPanel.setOpaque(true);
-		centerPanel.setLayout(new FlowLayout(FlowLayout.CENTER , 50 , 20));
-		centerPanel.setPreferredSize(new Dimension(700 , 150));
-		centerPanel.setBackground(this.getBackground().getColor(title));
-		mainTittle();
-		Buttons();
-		this.add(centerPanel , BorderLayout.CENTER);
+	public void layeredPane() {
+		layeredPane.setBounds(0 , 0 , backgroundImg.getIconWidth() , backgroundImg.getIconHeight());
+		layeredPane.add(centerLabel);
+		layeredPane.add(backgroundLabel);
+	}
 	
+	public void centerLabel() {
+		centerLabel.repaint();
+		centerLabel.setLayout(new BorderLayout(100, 50));
+		centerLabel.setBorder(new EmptyBorder(30 , 20 , 40 , 20));
+		centerLabel.setBounds(backgroundImg.getIconWidth()  / 2 - 350 , backgroundImg.getIconHeight() / 2 - 100 , 700 , 200);
+		mainTittle();
+		buttons();
 	}
 	
 	public void mainTittle() {
 		mainTittle.setText("Welcome to the Sr. Regis Brasserie");
 		mainTittle.setFont(new Font("Go Mono for Powerline" , Font.ITALIC , 30));
-		mainTittle.setForeground(Color.black);
-		centerPanel.add(mainTittle);
+		mainTittle.setForeground(Color.white);
+		mainTittle.setHorizontalAlignment(JLabel.CENTER);
+		mainTittle.setVerticalAlignment(JLabel.CENTER);
+		centerLabel.add(mainTittle , BorderLayout.CENTER);
 	}
 	
-	public void Buttons() {
-		customer.setPreferredSize(new Dimension(100 , 40));
-		manager.setPreferredSize(new Dimension(100 , 40));
+	public void buttons() {
+		buttonsLabel.setLayout(new GridLayout(1 ,2 , 50 , 10));
+		buttonsLabel.setBorder(new EmptyBorder(10 , 100 , 10 , 100));
+		buttonsLabel.setPreferredSize(new Dimension(10 , 50));
+		
+		customer.setSize(new Dimension(5 , 40));
+		manager.setSize(new Dimension(5 , 40));
+		
+		customer.setBackground(MenuFrame.buttonColor);
+		manager.setBackground(MenuFrame.buttonColor);
+		customer.setForeground(Color.white);
+		manager.setForeground(Color.white);
+		customer.setBorderPainted(false);
+		manager.setBorderPainted(false);
+		customer.setOpaque(true);
+		manager.setOpaque(true);
+		
 		customer.setFocusable(false);
 		manager.setFocusable(false);
 		
-		centerPanel.add(customer);
-		centerPanel.add(manager);
+		customer.addActionListener(this);
+		manager.addActionListener(this);
 		
-		customer.setAlignmentY(CENTER_ALIGNMENT);
+		buttonsLabel.add(customer);
+		buttonsLabel.add(manager);
+		
+		centerLabel.add(buttonsLabel , BorderLayout.SOUTH);
 	}
 
 	@Override
@@ -108,5 +139,4 @@ public class StartFrame extends JFrame implements ActionListener{
 			dispose();
 		}
 	}
-
 }
