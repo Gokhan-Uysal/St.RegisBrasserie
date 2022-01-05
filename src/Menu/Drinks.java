@@ -17,6 +17,10 @@ public class Drinks {
 	
 	private ArrayList<BaseDrinks> drinks;
 	
+	public ArrayList<BaseDrinks> getDrinks() {
+		return this.drinks;
+	}
+	
 	private BaseDrinks cokeZero;
 	private BaseDrinks coke;
 	private BaseDrinks soda;

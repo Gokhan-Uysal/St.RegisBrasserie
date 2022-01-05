@@ -24,6 +24,7 @@ public class Pastas {
 	private BaseFoods tortellini;
 	
 	public Pastas() {
+		pastas = new ArrayList<BaseFoods>();
 		spaghetti = new Spaghetti("Spaghetti Al Ragu" , 10 , new ImageIcon("src/Pictures/FoodImg/Pastas/spaghetti al ragu.jpg"));
 		penne = new Penne("Penne Primavera" , 10 , new ImageIcon("src/Pictures/FoodImg/Pastas/penne primavera.jpg"));
 		fettuccine = new Fettuccine("Fettuccine Alfredo" , 10 , new ImageIcon("src/Pictures/FoodImg/Pastas/fettuccine alfredo.jpg"));

@@ -1,4 +1,4 @@
-package Menu;
+package Menu.menuFrame;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -46,14 +46,14 @@ public class MenuFrame extends JFrame implements ActionListener{
 	private JButton mainDishes;
 	private JButton desserts;
 	private JButton drinks;
-	private JButton addButton;
-	private JButton removeButton;
 	
-	private ImageIcon addIcon;
-	private ImageIcon removeIcon;
-	
-	private JTextArea countTextArea;
-	private static int count;
+	private Starters st;
+	private Salads sd;
+	private Soups sp;
+	private Pastas pt;
+	private MainDishes md;
+	private Desserts ds;
+	private Drinks dr;
 	
 	public MenuFrame(){
 		//Init components
@@ -72,12 +72,11 @@ public class MenuFrame extends JFrame implements ActionListener{
 		desserts = new JButton("Desserts");
 		drinks = new JButton("Drinks");
 		
-		addIcon = new ImageIcon("src/Icons/icons8-add-40.png");
-		removeIcon = new ImageIcon("src/Icons/icons8-minus-40.png");
-		
+		initFoods();
 		menuTittle();
 		menuButtons();
 		menuList();
+		
 		
 		this.getContentPane().setBackground(Color.LIGHT_GRAY);
 		this.setTitle(title);
@@ -124,67 +123,30 @@ public class MenuFrame extends JFrame implements ActionListener{
 		menuPanel.setPreferredSize(new Dimension(520 , height));
 		menuPanel.setLayout(new GridLayout(columnFoodCount , 2 , 20 , 20));
 		menuPanel.setBackground(Color.black);
-		addFood(foodCount);
+		addFood(st.getStarters().size());
 	}
 	
 	public void addFood(int food) {
-		JLabel foodLabel;
-		JLabel buttonsLabel;
-		
 		
 		for (int i = 0; i < food; i++) {
-			count = 0;
-			
-			addButton = new JButton();
-			removeButton = new JButton();
-			
-			foodLabel = new JLabel();
-			buttonsLabel = new JLabel();
-			
-			countTextArea = new JTextArea();
-			
-			foodLabel.setLayout(new BorderLayout(5 , 5));
-			foodLabel.setOpaque(true);
-			foodLabel.setBackground(Color.blue);
-			
-			buttonsLabel.setOpaque(true);
-			buttonsLabel.setLayout(new FlowLayout(FlowLayout.CENTER , 30 , 2));
-			buttonsLabel.setPreferredSize(new Dimension(100 , 50));
-			
-			addButton.setPreferredSize(new Dimension(50 , 50));
-			removeButton.setPreferredSize(new Dimension(50 , 50));
-			
-			addButton.setIcon(addIcon);
-			removeButton.setIcon(removeIcon);
-			
-			addButton.addActionListener(this);
-			removeButton.addActionListener(this);
-		
-			buttonsLabel.setBackground(Color.white);
-			buttonsLabel.add(removeButton);
-			buttonsLabel.add(countTextArea);
-			buttonsLabel.add(addButton);
-			
-			countTextArea.setText("" + count);
-			foodLabel.add(buttonsLabel , BorderLayout.SOUTH);
-			menuPanel.add(foodLabel);
-			
+			menuPanel.add(new FoodPanel(st.getStarters().get(i)));
 		}
 		
+	}
+	
+	private void initFoods() {
+		st = new Starters();
+		sd = new Salads();
+		sp = new Soups();
+		pt = new Pastas();
+		md = new MainDishes();
+		ds = new Desserts();
+		dr = new Drinks();
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		if (e.getSource() == addButton) {
-			count += 1;
-		}
-		else if (e.getSource() == removeButton) {
-			if (count != 0) {
-				count -= 1;
-			}
-		}
-		countTextArea.setText("" + count);
+	
 	}
 
 

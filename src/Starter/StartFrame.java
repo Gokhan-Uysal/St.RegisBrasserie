@@ -20,7 +20,7 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
-import Menu.MenuFrame;
+import Menu.menuFrame.MenuFrame;
 
 public class StartFrame extends JFrame implements ActionListener{
 	private String title;

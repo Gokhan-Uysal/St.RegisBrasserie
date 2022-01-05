@@ -15,6 +15,10 @@ public class MainDishes {
 	
 	private ArrayList<BaseFoods> mainDishes;
 	
+	public ArrayList<BaseFoods> getMainDishes(){
+		return this.mainDishes;
+	}
+	
 	private BaseFoods mantı;
 	private BaseFoods meatBall;
 	private BaseFoods seaBass;
