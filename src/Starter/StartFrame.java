@@ -81,8 +81,8 @@ public class StartFrame extends JFrame implements ActionListener{
 	
 	public void centerLabel() {
 		centerLabel.repaint();
-		centerLabel.setLayout(new BorderLayout(100, 50));
-		centerLabel.setBorder(new EmptyBorder(30 , 20 , 40 , 20));
+		centerLabel.setLayout(new BorderLayout(10, 50));
+		centerLabel.setBorder(new EmptyBorder(10 , 20 , 40 , 20));
 		centerLabel.setBounds(backgroundImg.getIconWidth()  / 2 - 350 , backgroundImg.getIconHeight() / 2 - 100 , 700 , 200);
 		mainTittle();
 		buttons();
