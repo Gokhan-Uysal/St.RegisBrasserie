@@ -8,8 +8,6 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.nio.file.FileSystems;
-import java.nio.file.Path;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -19,19 +17,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.ScrollPaneConstants;
 import javax.swing.border.EmptyBorder;
-import javax.swing.border.EtchedBorder;
-import javax.swing.border.TitledBorder;
 
-import Menu.Starters;
-import Menu.Soups;
-import Menu.Salads;
-import Menu.Pastas;
-import Menu.Desserts;
-import Menu.Drinks;
-import Menu.MainDishes;
 
 public class MenuFrame extends JFrame implements ActionListener{
 	
@@ -40,7 +27,7 @@ public class MenuFrame extends JFrame implements ActionListener{
 	private JPanel headerPanel;
 	
 	private JLabel tittleLabel;
-	private JLabel costLabel;
+	protected static JLabel costLabel;
 	
 	private JScrollPane menuPane;
 	
@@ -137,7 +124,7 @@ public class MenuFrame extends JFrame implements ActionListener{
 		costLabel.setOpaque(true);
 		costLabel.setPreferredSize(new Dimension(120 , 40));
 		costLabel.setLayout(new GridLayout(1 , 2));
-		costLabel.setText("" + totalCost);
+		costLabel.setText("" + totalCost + "₺");
 		costLabel.setIcon(cart);
 		costLabel.setBackground(Color.LIGHT_GRAY);
 		costLabel.setIconTextGap(10);

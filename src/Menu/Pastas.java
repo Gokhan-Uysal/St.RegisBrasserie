@@ -25,10 +25,10 @@ public class Pastas extends FoodTypes{
 	
 	public Pastas() {
 		pastas = new ArrayList<BaseFoods>();
-		spaghetti = new Spaghetti("Spaghetti Al Ragu" , 10 , new ImageIcon("src/Pictures/FoodImg/Pastas/spaghetti al ragu.jpg"));
-		penne = new Penne("Penne Primavera" , 10 , new ImageIcon("src/Pictures/FoodImg/Pastas/penne primavera.jpg"));
-		fettuccine = new Fettuccine("Fettuccine Alfredo" , 10 , new ImageIcon("src/Pictures/FoodImg/Pastas/fettuccine alfredo.jpg"));
-		tortellini = new Tortellini("Seafood Tortellini" , 10 , new ImageIcon("src/Pictures/FoodImg/Pastas/seafood tortellini.jpg"));
+		spaghetti = new Spaghetti("Spaghetti Al Ragu" , 75 , new ImageIcon("src/Pictures/FoodImg/Pastas/spaghetti al ragu.jpg"));
+		penne = new Penne("Penne Primavera" , 65 , new ImageIcon("src/Pictures/FoodImg/Pastas/penne primavera.jpg"));
+		fettuccine = new Fettuccine("Fettuccine Alfredo" , 75 , new ImageIcon("src/Pictures/FoodImg/Pastas/fettuccine alfredo.jpg"));
+		tortellini = new Tortellini("Seafood Tortellini" , 90 , new ImageIcon("src/Pictures/FoodImg/Pastas/seafood tortellini.jpg"));
 		
 		pastas.add(spaghetti);
 		pastas.add(penne);

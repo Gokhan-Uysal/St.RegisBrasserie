@@ -29,12 +29,12 @@ public class Starters extends FoodTypes{
 	
 	public Starters() {
 		starters = new ArrayList<BaseFoods>();
-		appetizerPlate = new AppetizerPlate("Appetizer Plate" , 10 , new ImageIcon("src/Pictures/FoodImg/Starters/appetizer plate.jpg"));
-		cheesePlate = new CheesePlate("Cheese Plate" , 10 , new ImageIcon("src/Pictures/FoodImg/Starters/cheese plate.jpg"));
-		delicatessenPlate = new DelicatessenPlate("Delicatessen Plate" , 10 , new ImageIcon("src/Pictures/FoodImg/Starters/delicatessen plate.jpg"));
-		octopusCarpaccio = new OctopusCarpaccio("Octopus Carpaccio" , 10 , new ImageIcon("src/Pictures/FoodImg/Starters/grilled broccoli.jpg"));
-		potatoChips = new PotatoChips("Potato Chips" , 10 , new ImageIcon("src/Pictures/FoodImg/Starters/potato chips.jpg"));
-		grilledBroccoli = new GrilledBroccoli("Grilled Broccoli" , 10 , new ImageIcon("src/Pictures/FoodImg/Starters/octopus carpaccio.jpg"));
+		appetizerPlate = new AppetizerPlate("Appetizer Plate" , 85 , new ImageIcon("src/Pictures/FoodImg/Starters/appetizer plate.jpg"));
+		cheesePlate = new CheesePlate("Cheese Plate" , 110 , new ImageIcon("src/Pictures/FoodImg/Starters/cheese plate.jpg"));
+		delicatessenPlate = new DelicatessenPlate("Delicatessen Plate" , 130 , new ImageIcon("src/Pictures/FoodImg/Starters/delicatessen plate.jpg"));
+		octopusCarpaccio = new OctopusCarpaccio("Octopus Carpaccio" , 95 , new ImageIcon("src/Pictures/FoodImg/Starters/grilled broccoli.jpg"));
+		potatoChips = new PotatoChips("Potato Chips" , 35 , new ImageIcon("src/Pictures/FoodImg/Starters/potato chips.jpg"));
+		grilledBroccoli = new GrilledBroccoli("Grilled Broccoli" , 40 , new ImageIcon("src/Pictures/FoodImg/Starters/octopus carpaccio.jpg"));
 		
 		starters.add(appetizerPlate);
 		starters.add(cheesePlate);

@@ -108,5 +108,6 @@ public class FoodPanel extends JLabel implements ActionListener{
 			}
 		}
 		countText.setText("" + count);
+		MenuFrame.costLabel.setText("" + MenuFrame.getTotalCost() + "₺");
 	}
 }

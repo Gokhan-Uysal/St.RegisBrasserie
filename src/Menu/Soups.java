@@ -23,9 +23,9 @@ public class Soups extends FoodTypes{
 	
 	public Soups() {
 		soups = new ArrayList<BaseFoods>();
-		chichkenSoup = new ChichkenSoup("Chichken Soup" , 10 , new ImageIcon("src/Pictures/FoodImg/chickensoup.jpg"));
-		ezogelinSoup = new EzogelinSoup("Ezogelin Soup " , 10 , new ImageIcon("src/Pictures/FoodImg/ezogelinsoup.jpg"));
-		soupOfTheDay = new SoupOfTheDay("Soup Of The Day" , 10 , new ImageIcon("src/Pictures/FoodImg/"));
+		chichkenSoup = new ChichkenSoup("Chichken Soup" , 45 , new ImageIcon("src/Pictures/FoodImg/chickensoup.jpg"));
+		ezogelinSoup = new EzogelinSoup("Ezogelin Soup " , 45 , new ImageIcon("src/Pictures/FoodImg/ezogelinsoup.jpg"));
+		soupOfTheDay = new SoupOfTheDay("Soup Of The Day" , 45 , new ImageIcon("src/Pictures/FoodImg/"));
 		
 		soups.add(chichkenSoup);
 		soups.add(ezogelinSoup);
