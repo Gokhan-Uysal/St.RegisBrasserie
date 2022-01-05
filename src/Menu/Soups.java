@@ -9,11 +9,11 @@ import Foods.soups.ChichkenSoup;
 import Foods.soups.EzogelinSoup;
 import Foods.soups.SoupOfTheDay;
 
-public class Soups {
+public class Soups extends FoodTypes{
 	
 	private ArrayList<BaseFoods> soups;
 	
-	public ArrayList<BaseFoods> getStarters() {
+	public ArrayList<BaseFoods> getList() {
 		return this.soups;
 	}
 	

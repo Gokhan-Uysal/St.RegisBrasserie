@@ -13,11 +13,11 @@ import Foods.drinks.Soda;
 import Foods.drinks.Water;
 import Foods.drinks.White;
 
-public class Drinks {
+public class Drinks extends FoodTypes{
 	
 	private ArrayList<BaseDrinks> drinks;
 	
-	public ArrayList<BaseDrinks> getDrinks() {
+	public ArrayList<BaseDrinks> getList() {
 		return this.drinks;
 	}
 	

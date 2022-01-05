@@ -9,11 +9,11 @@ import Foods.salads.GevurDağı;
 import Foods.salads.Sezar;
 import Foods.salads.Yedikule;
 
-public class Salads{
+public class Salads extends FoodTypes{
 	 
 	ArrayList<BaseFoods> salads;
 	
-	public ArrayList<BaseFoods> getStarters() {
+	public ArrayList<BaseFoods> getList() {
 		return this.salads;
 	}
 	

@@ -11,11 +11,11 @@ import Foods.mainDishes.SeaBass;
 import Foods.mainDishes.Steak;
 import Foods.mainDishes.Tenderloin;
 
-public class MainDishes {
+public class MainDishes extends FoodTypes{
 	
 	private ArrayList<BaseFoods> mainDishes;
 	
-	public ArrayList<BaseFoods> getMainDishes(){
+	public ArrayList<BaseFoods> getList(){
 		return this.mainDishes;
 	}
 	

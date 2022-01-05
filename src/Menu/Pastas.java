@@ -10,11 +10,11 @@ import Foods.pastas.Penne;
 import Foods.pastas.Spaghetti;
 import Foods.pastas.Tortellini;
 
-public class Pastas {
+public class Pastas extends FoodTypes{
 	
 	private ArrayList<BaseFoods> pastas;
 	
-	public ArrayList<BaseFoods> getStarters() {
+	public ArrayList<BaseFoods> getList() {
 		return this.pastas;
 	}
 	

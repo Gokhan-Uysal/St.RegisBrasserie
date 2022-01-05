@@ -11,6 +11,9 @@ public abstract class BaseFoods implements IFoods{
 	protected float price;
 	protected ImageIcon img;
 	
+	public ImageIcon getImg() {
+		return this.img;
+	}
 	
 	public BaseFoods(String name, float price , ImageIcon img) {
 		super();

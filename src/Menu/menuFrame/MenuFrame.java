@@ -19,6 +19,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
 
 import Menu.Starters;
 import Menu.Soups;
@@ -33,7 +37,6 @@ public class MenuFrame extends JFrame implements ActionListener{
 	private String title;
 	
 	private JPanel buttons;
-	private JPanel menuPanel;
 	
 	private JLabel tittleLabel;
 	
@@ -47,23 +50,33 @@ public class MenuFrame extends JFrame implements ActionListener{
 	private JButton desserts;
 	private JButton drinks;
 	
-	private Starters st;
-	private Salads sd;
-	private Soups sp;
-	private Pastas pt;
-	private MainDishes md;
-	private Desserts ds;
-	private Drinks dr;
+	private JPanel mainPanel;
+	private JPanel startersPanel;
+	private JPanel saladsPanel;
+	private JPanel soupsPanel;
+	private JPanel pastasPanel;
+	private JPanel mainDishesPanel;
+	private JPanel drinksPanel;
+	private JPanel dessertsPanel;
 	
 	public MenuFrame(){
 		//Init components
 		buttons = new JPanel();
-		menuPanel = new JPanel();
 		
 		tittleLabel = new JLabel();
 		
-		menuPane = new JScrollPane(menuPanel , JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED , JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		mainPanel = new JPanel();
 		
+		startersPanel = new StartersList();
+		//saladsPanel = new SaladsList();
+		//soupsPanel = new SoupsList();
+		//pastasPanel = new PastasList();
+		//mainDishesPanel = new MainDishesList();
+		//drinksPanel = new DrinksList();
+		//dessertsPanel = new DessertsList();
+		
+		menuPane = new JScrollPane(mainPanel , JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED , JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+
 		starters = new JButton("Starters");
 		soups = new JButton("Soups");
 		salads = new JButton("Salads");
@@ -71,24 +84,28 @@ public class MenuFrame extends JFrame implements ActionListener{
 		mainDishes = new JButton("Main Dishes");
 		desserts = new JButton("Desserts");
 		drinks = new JButton("Drinks");
-		
-		initFoods();
+
 		menuTittle();
 		menuButtons();
-		menuList();
-		
+		mainPanel();
+
 		
 		this.getContentPane().setBackground(Color.LIGHT_GRAY);
 		this.setTitle(title);
-		this.setLayout(new FlowLayout(FlowLayout.CENTER , 1280 / 2, 20));
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
-		this.setResizable(false);
-		this.add(tittleLabel);
-		this.add(buttons);
+		this.setResizable(true);
 		this.add(menuPane);
+	
 	}
 	
+	public void mainPanel() {
+		mainPanel.setLayout(new BorderLayout(20 , 20));
+		mainPanel.setBorder(new EmptyBorder(10 , 100 , 20 , 100));
+		mainPanel.add(buttons , BorderLayout.NORTH);
+		mainPanel.add(tittleLabel);
+		mainPanel.add(startersPanel , BorderLayout.CENTER);
+	}
 	
 	public void menuTittle() {
 		title = "~Menu~";
@@ -114,39 +131,16 @@ public class MenuFrame extends JFrame implements ActionListener{
 		buttons.add(pastas);
 		
 	}
-	
-	public void menuList() {
-		int foodCount = 8;
-		int columnFoodCount = foodCount / 2;
-		int height = columnFoodCount * 200 + (columnFoodCount - 1) * 40;
-		
-		menuPanel.setPreferredSize(new Dimension(520 , height));
-		menuPanel.setLayout(new GridLayout(columnFoodCount , 2 , 20 , 20));
-		menuPanel.setBackground(Color.black);
-		addFood(st.getStarters().size());
-	}
-	
-	public void addFood(int food) {
-		
-		for (int i = 0; i < food; i++) {
-			menuPanel.add(new FoodPanel(st.getStarters().get(i)));
-		}
-		
-	}
-	
-	private void initFoods() {
-		st = new Starters();
-		sd = new Salads();
-		sp = new Soups();
-		pt = new Pastas();
-		md = new MainDishes();
-		ds = new Desserts();
-		dr = new Drinks();
-	}
-	
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
-	
+		if (e.getSource() == starters) {
+			//startersPanel.setOpaque(true);
+		}
+		else if (e.getSource() == desserts) {
+			//desserts.setOpaque(true);
+			//menuPane = new JScrollPane(dessertsPanel , JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED , JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		}
 	}
 
 

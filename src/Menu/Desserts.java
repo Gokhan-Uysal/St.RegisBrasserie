@@ -10,11 +10,11 @@ import Foods.desserts.CheeseCake;
 import Foods.desserts.ChocolateSouffle;
 import Foods.desserts.RicePudding;
 
-public class Desserts{
+public class Desserts extends FoodTypes{
 
 	private ArrayList<BaseFoods> desserts;
 	
-	public ArrayList<BaseFoods> getDesserts(){
+	public ArrayList<BaseFoods> getList(){
 		return this.desserts;
 	}
 	

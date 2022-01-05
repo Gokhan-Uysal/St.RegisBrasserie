@@ -12,7 +12,7 @@ import Foods.starters.GrilledBroccoli;
 import Foods.starters.OctopusCarpaccio;
 import Foods.starters.PotatoChips;
 
-public class Starters {
+public class Starters extends FoodTypes{
 	
 	private ArrayList<BaseFoods> starters;
 	
@@ -23,7 +23,7 @@ public class Starters {
 	private BaseFoods potatoChips;
 	private BaseFoods grilledBroccoli;
 	
-	public ArrayList<BaseFoods> getStarters() {
+	public ArrayList<BaseFoods> getList() {
 		return this.starters;
 	}
 	

@@ -27,9 +27,11 @@ public class FoodPanel extends JLabel implements ActionListener{
 	//Image icons
 	private ImageIcon addIcon;
 	private ImageIcon removeIcon;
+	private ImageIcon foodImage;
 	
 	//Buttons label
 	private JLabel subLabel;
+	private JLabel imgLabel;
 	
 	//Food
 	private BaseFoods food;
@@ -38,13 +40,16 @@ public class FoodPanel extends JLabel implements ActionListener{
 	private int count;
 	
 	public FoodPanel(BaseFoods food){
+		this.food = food;
 		addButton = new JButton();
 		removeButton = new JButton();
 		
 		subLabel = new JLabel();
+		imgLabel = new JLabel();
 		
 		addIcon = new ImageIcon("src/Icons/icons8-add-40.png");
 		removeIcon = new ImageIcon("src/Icons/icons8-minus-40.png");
+		foodImage = food.getImg();
 		
 		countText = new JTextArea();
 		foodText = new JTextArea();
@@ -52,11 +57,13 @@ public class FoodPanel extends JLabel implements ActionListener{
 		count = 0;
 		
 		subLabel();
+		imgLabel();
 		
 		this.setLayout(new BorderLayout(5  ,5));
 		this.setOpaque(true);
 		this.add(subLabel , BorderLayout.SOUTH);
-		this.food = food;
+		this.add(imgLabel , BorderLayout.CENTER);
+		
 		
 	}
 	
@@ -82,6 +89,10 @@ public class FoodPanel extends JLabel implements ActionListener{
 		subLabel.add(addButton);
 	}
 	
+	public void imgLabel() {
+		imgLabel.setOpaque(true);
+		imgLabel.setIcon(foodImage);
+	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
