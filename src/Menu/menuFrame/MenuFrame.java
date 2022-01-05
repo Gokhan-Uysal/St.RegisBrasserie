@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -36,19 +37,14 @@ public class MenuFrame extends JFrame implements ActionListener{
 	
 	private String title;
 	
-	private JPanel buttons;
+	private JPanel headerPanel;
 	
 	private JLabel tittleLabel;
 	
 	private JScrollPane menuPane;
 	
-	private JButton starters;
-	private JButton soups;
-	private JButton salads;
-	private JButton pastas;
-	private JButton mainDishes;
-	private JButton desserts;
-	private JButton drinks;
+	private JComboBox buttonBox;
+	private ArrayList<String> buttons;
 	
 	private JPanel mainPanel;
 	private JPanel startersPanel;
@@ -61,11 +57,12 @@ public class MenuFrame extends JFrame implements ActionListener{
 	
 	public MenuFrame(){
 		//Init components
-		buttons = new JPanel();
+		headerPanel = new JPanel();
 		
 		tittleLabel = new JLabel();
 		
 		mainPanel = new JPanel();
+		buttons = new ArrayList<String>();
 		
 		startersPanel = new StartersList();
 		//saladsPanel = new SaladsList();
@@ -76,14 +73,6 @@ public class MenuFrame extends JFrame implements ActionListener{
 		//dessertsPanel = new DessertsList();
 		
 		menuPane = new JScrollPane(mainPanel , JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED , JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-
-		starters = new JButton("Starters");
-		soups = new JButton("Soups");
-		salads = new JButton("Salads");
-		pastas = new JButton("Pastas");
-		mainDishes = new JButton("Main Dishes");
-		desserts = new JButton("Desserts");
-		drinks = new JButton("Drinks");
 
 		menuTittle();
 		menuButtons();
@@ -102,8 +91,7 @@ public class MenuFrame extends JFrame implements ActionListener{
 	public void mainPanel() {
 		mainPanel.setLayout(new BorderLayout(20 , 20));
 		mainPanel.setBorder(new EmptyBorder(10 , 100 , 20 , 100));
-		mainPanel.add(buttons , BorderLayout.NORTH);
-		mainPanel.add(tittleLabel);
+		mainPanel.add(headerPanel , BorderLayout.NORTH);
 		mainPanel.add(startersPanel , BorderLayout.CENTER);
 	}
 	
@@ -112,35 +100,34 @@ public class MenuFrame extends JFrame implements ActionListener{
 		tittleLabel.setText(title);
 		tittleLabel.setPreferredSize(new Dimension(150 , 30));
 		tittleLabel.setHorizontalTextPosition(JLabel.CENTER);
+		tittleLabel.setHorizontalAlignment(JLabel.CENTER);
 		tittleLabel.setFont(new Font("Go Mono for Powerline", Font.ITALIC, 30));
 
 	}
 	
 	
 	public void menuButtons() {
-		buttons.setOpaque(true);
-		buttons.setLayout(new FlowLayout(FlowLayout.CENTER , 10 , 10));
-		buttons.setPreferredSize(new Dimension(500 , 80));
-		buttons.setBackground(Color.LIGHT_GRAY);
-		buttons.add(starters);
-		buttons.add(soups);
-		buttons.add(salads);
-		buttons.add(mainDishes);
-		buttons.add(desserts);
-		buttons.add(drinks);
-		buttons.add(pastas);
+		headerPanel.setOpaque(true);
+		headerPanel.setLayout(new BorderLayout(20 , 20));
+		headerPanel.setPreferredSize(new Dimension(500 , 80));
+		headerPanel.setBackground(Color.LIGHT_GRAY);
+		headerPanel.add(tittleLabel , BorderLayout.NORTH);
+		
+		buttons.add("Starters");
+		buttons.add("Soups");
+		buttons.add("Salads");
+		buttons.add("Pastas");
+		buttons.add("Main Dishes");
+		buttons.add("Desserts");
+		buttons.add("Drinks");
+		
+		buttonBox = new JComboBox(buttons.toArray());
+		headerPanel.add(buttonBox , BorderLayout.CENTER);
 		
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == starters) {
-			//startersPanel.setOpaque(true);
-		}
-		else if (e.getSource() == desserts) {
-			//desserts.setOpaque(true);
-			//menuPane = new JScrollPane(dessertsPanel , JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED , JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		}
 	}
 
 
