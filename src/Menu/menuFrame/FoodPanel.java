@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Map;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -37,7 +38,7 @@ public class FoodPanel extends JLabel implements ActionListener{
 	private BaseFoods food;
 	
 	//count
-	private int count;
+	private static int count;
 	
 	public FoodPanel(BaseFoods food){
 		this.food = food;
@@ -108,7 +109,6 @@ public class FoodPanel extends JLabel implements ActionListener{
 			if (count > 0) {
 				count -= 1;
 				MenuFrame.setTotalCost(MenuFrame.getTotalCost() - food.getPrice());
-				MenuFrame.checkoutText += food.getName() + " " + "x1" + "\n";
 			}
 		}
 		countText.setText("" + count);

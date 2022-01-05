@@ -8,7 +8,10 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Formatter;
+import java.util.Scanner;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -165,7 +168,8 @@ public class MenuFrame extends JFrame implements ActionListener{
 	public void menubuttonBox() {
 		headerPanel.setOpaque(true);
 		headerPanel.setLayout(new BorderLayout(20 , 20));
-		headerPanel.setPreferredSize(new Dimension(500 , 80));
+		headerPanel.setBorder(new EmptyBorder(5 , 20 , 5 , 20));
+		headerPanel.setPreferredSize(new Dimension(500 , 100));
 		headerPanel.setBackground(Color.LIGHT_GRAY);
 		headerPanel.add(tittleLabel , BorderLayout.NORTH);
 		
@@ -180,7 +184,7 @@ public class MenuFrame extends JFrame implements ActionListener{
 		buttonBox.addItem("Drinks");
 		
 		buttonBox.addActionListener(this);
-		headerPanel.add(buttonBox , BorderLayout.CENTER);
+		headerPanel.add(buttonBox , BorderLayout.WEST);
 		
 	}
 	
@@ -197,7 +201,20 @@ public class MenuFrame extends JFrame implements ActionListener{
 		menuBar.add(profile);
 		menuBar.add(checkout);
 	}
-
+	
+	public void printBill() throws FileNotFoundException {
+		
+		checkoutText += "Your total is: " + totalCost;
+		
+		try(Formatter output = new Formatter("src/Bills/bill.csv")){
+			output.format(checkoutText);
+		}
+		
+		catch(FileNotFoundException | SecurityException e) {
+				System.err.println(e);
+		}
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == buttonBox) {
@@ -228,6 +245,14 @@ public class MenuFrame extends JFrame implements ActionListener{
 		if (totalCost > 0) {
 			if (e.getSource() == pay) {
 				System.out.println("Your bill has been printed");
+				try {
+					printBill();
+				} 
+				catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				 
 			}
 			else if (e.getSource() == splitCheck) {
 				System.out.println("Your bill hase been splitted and printed");
@@ -235,7 +260,7 @@ public class MenuFrame extends JFrame implements ActionListener{
 		}
 		
 	}
-	
+
 	public void setVisible(JPanel visiblePanel) {
 		for (JPanel p : currentPanels) {
 			if (p != visiblePanel) {
