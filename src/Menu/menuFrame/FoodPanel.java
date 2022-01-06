@@ -139,6 +139,7 @@ public class FoodPanel extends JLabel implements ActionListener{
 				count -= 1;
 				MenuFrame.setTotalCost(MenuFrame.getTotalCost() - food.getPrice());
 				Db.addStock(food);
+				addButton.setEnabled(true);
 			}
 
 		}
