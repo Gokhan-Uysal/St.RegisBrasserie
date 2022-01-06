@@ -1,0 +1,33 @@
+Appetizer Plate-10
+Cheese Plate-60
+Delicatessen Plate-20
+Octopus Carpaccio-20
+Potato Chips-50
+Grilled Broccoli-40
+Chichken Soup-20
+Ezogelin Soup-30
+Soup Of The Day-2
+Gevur Dagi-10
+Sezar-50
+Yedikule-30
+Spaghetti Al Ragu-60
+Penne Primavera-30
+Fettuccine Alfredo-50
+Seafood Tortellini-20
+Manti-20
+Meatball-40
+Sea Bass-50
+Cowboy Ribeye Steak-60
+Grilled Tenderloin-120
+Baklava-30
+Cheesecake-50
+Chocolate Souffle-80
+Rice Pudding-170
+Coca Cola Zero-200
+Coca Cola-160
+Erikli Water-250
+Nigde Sparkling Water-190
+G.H. Mumm. Cordon Rouge Brut. Champagne-40
+Chateau Kaloak Red-60
+Terre Rosse, Pinot Grigio White-61
+Chateau d'Esclans, Whisperina Angel Rose-62

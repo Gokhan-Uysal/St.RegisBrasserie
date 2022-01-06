@@ -30,6 +30,7 @@ import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 
 import Starter.StartFrame;
+import Stocks.DbManager;
 
 
 public class MenuFrame extends JFrame implements ActionListener{
@@ -267,12 +268,29 @@ public class MenuFrame extends JFrame implements ActionListener{
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+				
+				try {
+					DbManager.writeToFile();
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
 				this.dispose();
 				System.exit(0);
 				 
 			}
 			else if (e.getSource() == splitCheck) {
 				System.out.println("Your bill hase been splitted and printed");
+				try {
+					DbManager.writeToFile();
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				this.dispose();
+				System.exit(0);
 			}
 		}
 		

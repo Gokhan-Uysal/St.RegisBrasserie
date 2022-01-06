@@ -27,7 +27,7 @@ public class Desserts extends FoodTypes{
 		desserts = new ArrayList<BaseFoods>();
 		
 		baklava = new Baklava("Baklava" , 80 , new ImageIcon("src/Pictures/FoodImg/Desserts/i.jpg"));
-		cheeseCake = new CheeseCake("Cheese Cake" , 50 , new ImageIcon("src/Pictures/FoodImg/Desserts/i (1).jpg"));
+		cheeseCake = new CheeseCake("Cheesecake" , 50 , new ImageIcon("src/Pictures/FoodImg/Desserts/i (1).jpg"));
 		chocolateSouffle = new ChocolateSouffle("Chocolate Souffle" , 50 , new ImageIcon("src/Pictures/FoodImg/Desserts/i (2).jpg"));
 		ricePudding = new RicePudding("Rice Pudding" , 45 , new ImageIcon("src/Pictures/FoodImg/Desserts/i (3).jpg"));
 		

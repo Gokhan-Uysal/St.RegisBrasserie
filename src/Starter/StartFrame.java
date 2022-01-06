@@ -23,6 +23,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Menu.menuFrame.MenuFrame;
+import Stocks.DbManager;
 
 public class StartFrame extends JFrame implements ActionListener{
 	private String title;
@@ -40,8 +41,10 @@ public class StartFrame extends JFrame implements ActionListener{
 	private JButton customer;
 	private JButton manager;
 	
-	ImageIcon backgroundImg;
+	private ImageIcon backgroundImg;
 	
+
+
 	public StartFrame() {
 		
 		customer = new JButton("Customer");

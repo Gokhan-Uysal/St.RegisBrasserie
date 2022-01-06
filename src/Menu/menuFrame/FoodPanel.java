@@ -18,6 +18,7 @@ import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
 
 import Foods.BaseFoods;
+import Stocks.DbManager;
 
 public class FoodPanel extends JLabel implements ActionListener{
 
@@ -44,7 +45,15 @@ public class FoodPanel extends JLabel implements ActionListener{
 	//count
 	private int count;
 	
+	private DbManager Db;
+	
+	public DbManager getDb() {
+		return Db;
+	}
+	
 	public FoodPanel(BaseFoods food){
+		Db = new DbManager();
+		
 		this.food = food;
 		addButton = new JButton();
 		removeButton = new JButton();
@@ -114,14 +123,24 @@ public class FoodPanel extends JLabel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if (e.getSource() == addButton) {
-			count += 1;
-			MenuFrame.setTotalCost(MenuFrame.getTotalCost() + food.getPrice());
+			if (Db.checkStock(food)) {
+				count += 1;
+				MenuFrame.setTotalCost(MenuFrame.getTotalCost() + food.getPrice());
+				Db.removeStock(food);
+			}
+			else {
+				addButton.setEnabled(false);
+			}
 		}
+		
 		else if (e.getSource() == removeButton) {
+			
 			if (count > 0) {
 				count -= 1;
 				MenuFrame.setTotalCost(MenuFrame.getTotalCost() - food.getPrice());
+				Db.addStock(food);
 			}
+
 		}
 		countLabel.setText(" " + count + " ");
 		MenuFrame.costLabel.setText("" + MenuFrame.getTotalCost() + "₺");
