@@ -21,6 +21,7 @@ READ AND SIGN BY WRITING YOUR NAME SURNAME AND STUDENT ID SIGNATURE: <Gökhan Uy
 public class main {
 	
 	public static void main(String[] args) {
+		DbManager Db = new DbManager();
 		StartFrame startFrame = new StartFrame();
 	}
 

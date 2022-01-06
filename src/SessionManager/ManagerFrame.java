@@ -3,6 +3,7 @@ package SessionManager;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,12 +24,13 @@ public class ManagerFrame extends JFrame implements ActionListener{
 	
 	private JPanel mainPanel;
 	
-	private JLabel stockInfo = new JLabel();
-	private JLabel customerInfo = new JLabel();
+	private JLabel stockInfo;
+	private JLabel customerInfo;
+	private JLabel tittleLabel;
 	
-	private JScrollPane scrollPane;
+	private JScrollPane mainPane;
 	
-	private DbManager Db;
+	private static JTextArea info = new JTextArea(DbManager.stockInfo());;
 	
 	private static ArrayList<Customer> customerList = new ArrayList<Customer>();
 	
@@ -38,39 +40,64 @@ public class ManagerFrame extends JFrame implements ActionListener{
 
 	public ManagerFrame() {
 		mainPanel = new JPanel();
+		stockInfo = new JLabel();
+		customerInfo = new JLabel();
+		tittleLabel = new JLabel();
 		
+		mainPane = new JScrollPane(mainPanel , JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED , JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		
-		Db = new DbManager();
-		
-		mainPanel();
+	
 		stockInfo();
 		customerLabel();
+		managerTittle();
+		mainPanel();
 		
-		scrollPane = new JScrollPane(mainPanel , JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED , JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		
-		this.setLayout(new BorderLayout());
-		this.setSize(new Dimension(1080 , 1080));
-		this.setLayout(new BorderLayout(10 , 10));
+		this.setSize(new Dimension(1280 , 720));
 		this.setVisible(true);
 		this.setResizable(false);
-		this.add(mainPanel , BorderLayout.CENTER);
-		this.add(stockInfo , BorderLayout.SOUTH);
-
+		this.add(mainPane);
 	}
 	
 	public void mainPanel() {
 		mainPanel.setLayout(new BorderLayout(10 , 10));
-		mainPanel.setBackground(Color.black);
-		mainPanel.add(customerInfo , BorderLayout.NORTH);
-		//mainPanel.add(stockInfo , BorderLayout.SOUTH);
+		mainPanel.setBackground(MenuFrame.labelColor);
+		mainPanel.add(stockInfo , BorderLayout.WEST);
+		mainPanel.add(customerInfo , BorderLayout.EAST);
+		mainPanel.add(tittleLabel, BorderLayout.NORTH);
+	}
+	
+	public void managerTittle() {
+		String title = "~Manager~";
+		tittleLabel.setText(title);
+		tittleLabel.setPreferredSize(new Dimension(150 , 100));
+		tittleLabel.setHorizontalTextPosition(JLabel.CENTER);
+		tittleLabel.setHorizontalAlignment(JLabel.CENTER);
+		tittleLabel.setFont(new Font("Go Mono for Powerline", Font.ITALIC, 30));
+		tittleLabel.setBackground(MenuFrame.labelColor);
+		tittleLabel.setOpaque(true);
 	}
 	
 	public void customerLabel() {
-		customerInfo.setLayout(new GridLayout(customerList.size() / 4 , 4 , 20 , 20));
+		JLabel tittle = new JLabel("Customers");
+		tittle.setHorizontalAlignment(JLabel.CENTER);
+		
+		customerInfo.setLayout(new BorderLayout(10 , 10));
+		customerInfo.add(tittle , BorderLayout.NORTH);
+		customerInfo.setPreferredSize(new Dimension(300 , 200));
+		customerInfo.setBorder(new EmptyBorder(10 , 10 , 5 , 10));
 		customerInfo.setBackground(MenuFrame.buttonColor);
-		customerInfo.setPreferredSize(new Dimension(0 , 100));
-		customerInfo.setBorder(new EmptyBorder(10 , 20 , 10 , 20));
 		customerInfo.setOpaque(true);
+		
+		//customerInfo.setOpaque(true);
+		
+		JLabel middlePart = new JLabel();
+		middlePart.setLayout(new GridLayout(10 , 1 , 20 , 20));
+		middlePart.setBackground(MenuFrame.buttonColor);
+		middlePart.setBorder(new EmptyBorder(10 , 20 , 10 , 20));
+		middlePart.setOpaque(true);
+		
+		
+		
 		
 		JLabel customerLabel;
 		JLabel customerName;
@@ -94,30 +121,35 @@ public class ManagerFrame extends JFrame implements ActionListener{
 			customerLabel.add(customerName);
 			customerLabel.add(customerAge);
 			customerLabel.add(customerBooking);
-			
-			customerLabel.setBackground(MenuFrame.labelColor);
+			customerLabel.setBackground(MenuFrame.textColor);
 			customerLabel.setOpaque(true);
-			customerInfo.add(customerLabel);
+			
+			middlePart.add(customerLabel);
 		}
+		customerInfo.add(middlePart , BorderLayout.CENTER);
 	}
 	
 	public void stockInfo() {
-		JLabel foodLabel;
-		String info = "";
-
+		//JLabel foodLabel;
+		JLabel tittle = new JLabel("Stocks");
+		tittle.setHorizontalAlignment(JLabel.CENTER);
+		
+		info.setEditable(false);
+		info.setBackground(MenuFrame.foregroundColor);
+		
 		stockInfo.setHorizontalAlignment(JLabel.CENTER);
-		stockInfo.setPreferredSize(new Dimension(0 , 350));
+		stockInfo.setPreferredSize(new Dimension(350 , 1200));
 		stockInfo.setBorder(new EmptyBorder(10 , 10 , 5 , 10));
 		stockInfo.setBackground(MenuFrame.foregroundColor);
-		stockInfo.setLayout(new GridLayout(DbManager.getDb().size() / 3 , 3 , 5 , 5));
+		stockInfo.setLayout(new BorderLayout(5 , 5));
+		stockInfo.add(info , BorderLayout.CENTER);
+		stockInfo.add(tittle , BorderLayout.NORTH);
 		stockInfo.setOpaque(true);
 		
-
-		for (Entry<String , Integer> foodStock : DbManager.getDb().entrySet()) {
-			info = foodStock.getKey().trim() + "  " + foodStock.getValue();
-			foodLabel = new JLabel(info);
-			stockInfo.add(foodLabel);
-		}
+	}
+	
+	public static void updateStockInfo() {
+		info.setText(DbManager.stockInfo());
 	}
 	
 	@Override

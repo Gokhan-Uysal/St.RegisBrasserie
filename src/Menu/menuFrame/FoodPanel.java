@@ -19,6 +19,7 @@ import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
 
 import Foods.BaseFoods;
+import SessionManager.Customer;
 import SessionManager.ManagerFrame;
 import Stocks.DbManager;
 
@@ -48,14 +49,7 @@ public class FoodPanel extends JLabel implements ActionListener{
 	//count
 	private int count;
 	
-	private DbManager Db;
-	
-	public DbManager getDb() {
-		return Db;
-	}
-	
 	public FoodPanel(BaseFoods food){
-		Db = new DbManager();
 		
 		this.food = food;
 		addButton = new JButton();
@@ -133,14 +127,20 @@ public class FoodPanel extends JLabel implements ActionListener{
 		imgLabel.setBackground(MenuFrame.labelColor);
 	}
 	
+	public void addOrderToCustomer() {
+		for (Customer thisCustomer : ManagerFrame.getCustomerList()) {
+			if (thisCustomer.getSeasionnumber() == )
+		}
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if (e.getSource() == addButton) {
-			if (Db.checkStock(food)) {
+			if (DbManager.checkStock(food)) {
 				count += 1;
 				MenuFrame.setTotalCost(MenuFrame.getTotalCost() + food.getPrice());
-				Db.removeStock(food);
+				DbManager.removeStock(food);
 			}
 			else {
 				addButton.setEnabled(false);
@@ -152,12 +152,13 @@ public class FoodPanel extends JLabel implements ActionListener{
 			if (count > 0) {
 				count -= 1;
 				MenuFrame.setTotalCost(MenuFrame.getTotalCost() - food.getPrice());
-				Db.addStock(food);
+				DbManager.addStock(food);
 				addButton.setEnabled(true);
 			}
-			
+
 		}
 		countLabel.setText(" " + count + " ");
-		MenuFrame.costLabel.setText("" + MenuFrame.getTotalCost() + "₺");
+		MenuFrame.updateTotalCost();
+		ManagerFrame.updateStockInfo();
 	}
 }

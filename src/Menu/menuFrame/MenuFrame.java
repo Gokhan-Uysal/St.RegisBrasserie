@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Formatter;
+import java.util.Map.Entry;
 import java.util.Scanner;
 
 import javax.swing.ImageIcon;
@@ -29,6 +30,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 
+import Foods.BaseFoods;
+import SessionManager.Customer;
+import SessionManager.ManagerFrame;
 import Starter.StartFrame;
 import Stocks.DbManager;
 
@@ -326,7 +330,27 @@ public class MenuFrame extends JFrame implements ActionListener{
 		visiblePanel.setVisible(true);
 	}
 
-
+	public static void updateTotalCost() {
+		costLabel.setText("" + getTotalCost() + "₺");
+	}
 	
+	public void addOrderToCustomer(BaseFoods food , int amount) {
+		
+		for (Customer thisCustomer : ManagerFrame.getCustomerList()) {
+			if (thisCustomer.getName() == this.userName.toString()) {
+				
+			}
+		}
+	}
 	
+	public void checkCustomerOrder(Customer customer) {
+		try {
+			for (Entry<String , Integer> order : customer.getCustomerOrder().entrySet()) {
+				
+			}
+		}
+		catch(NullPointerException e) {
+			System.err.println(e);
+		}
+	}
 }

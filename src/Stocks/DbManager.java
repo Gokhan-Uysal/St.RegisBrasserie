@@ -2,7 +2,6 @@ package Stocks;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Formatter;
@@ -61,8 +60,7 @@ public class DbManager implements IDbManager{
 		}
 	}
 
-	@Override
-	public int returnStock(BaseFoods food) {
+	public static int returnStock(BaseFoods food) {
 		for (Entry<String , Integer> stock : DbManager.Db.entrySet()) {
 			if (stock.getKey().equals(food.getName().trim())) {
 				return stock.getValue();
@@ -71,8 +69,8 @@ public class DbManager implements IDbManager{
 		return -1;
 	}
 
-	@Override
-	public boolean checkStock(BaseFoods food) {
+
+	public static boolean checkStock(BaseFoods food) {
 		// TODO Auto-generated method stub
 		for (Entry<String , Integer> stock : DbManager.Db.entrySet()) {
 			if (stock.getKey().equals(food.getName().trim())) {
@@ -85,8 +83,8 @@ public class DbManager implements IDbManager{
 		return false;
 	}
 
-	@Override
-	public void removeStock(BaseFoods food) {
+
+	public static void removeStock(BaseFoods food) {
 		for (Entry<String , Integer> stock : DbManager.Db.entrySet()) {
 			if (stock.getKey().equals(food.getName().trim())) {
 				if (checkStock(food)) {
@@ -96,8 +94,7 @@ public class DbManager implements IDbManager{
 		}
 	}
 
-	@Override
-	public void addStock(BaseFoods food) {
+	public static void addStock(BaseFoods food) {
 		// TODO Auto-generated method stub
 		for (Entry<String , Integer> stock : DbManager.Db.entrySet()) {
 			if (stock.getKey().equals(food.getName().trim())) {
@@ -122,9 +119,9 @@ public class DbManager implements IDbManager{
 	public static String stockInfo() {
 		for (Entry<String , Integer> stockFood : Db.entrySet()) {
 			stockInfoText.append(stockFood.getKey().trim());
-			stockInfoText.append("\t");
+			stockInfoText.append(" ");
 			stockInfoText.append(stockFood.getValue());
-			stockInfoText.append("\n");
+			stockInfoText.append("\n\n");
 		}
 		return stockInfoText.toString();
 	}
