@@ -8,7 +8,6 @@ public class Customer {
 	private int age;
 	private int seasionnumber;
 	
-	
 	public String getName() {
 		return name;
 	}

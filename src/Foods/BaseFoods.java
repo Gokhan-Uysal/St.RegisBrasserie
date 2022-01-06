@@ -2,9 +2,8 @@ package Foods;
 
 import javax.swing.ImageIcon;
 
-import Stocks.IFoods;
 
-public abstract class BaseFoods implements IFoods{
+public abstract class BaseFoods{
 	
 	protected String name;
 	protected float price;

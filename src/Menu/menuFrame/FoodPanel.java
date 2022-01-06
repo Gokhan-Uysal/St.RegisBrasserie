@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -39,6 +40,7 @@ public class FoodPanel extends JLabel implements ActionListener{
 	private JLabel subLabel;
 	private JLabel imgLabel;
 	private JLabel countLabel;
+	private JLabel infoLabel;
 	
 	//Food
 	private BaseFoods food;
@@ -62,6 +64,7 @@ public class FoodPanel extends JLabel implements ActionListener{
 		subLabel = new JLabel();
 		imgLabel = new JLabel();
 		countLabel = new JLabel();
+		infoLabel = new JLabel();
 		
 		addIcon = new ImageIcon("src/Pictures/Icons/icons8-add-40.png");
 		removeIcon = new ImageIcon("src/Pictures/Icons/icons8-minus-40.png");
@@ -74,14 +77,24 @@ public class FoodPanel extends JLabel implements ActionListener{
 		
 		subLabel();
 		imgLabel();
+		infoLabel();
 		
 		this.setLayout(new BorderLayout(5  ,5));
 		this.setOpaque(true);
 		this.setBackground(MenuFrame.labelColor);
 		this.add(subLabel , BorderLayout.SOUTH);
 		this.add(imgLabel , BorderLayout.CENTER);
+		this.add(infoLabel , BorderLayout.NORTH);
 		
 		
+	}
+	
+
+	public void infoLabel() {
+		infoLabel.setText(food.getName());
+		infoLabel.setHorizontalAlignment(JLabel.CENTER);
+		infoLabel.setPreferredSize(new Dimension(0 , 15));
+		infoLabel.setFont(new Font("Boli" , Font.ITALIC , 11));
 	}
 	
 	public void subLabel() {
