@@ -67,6 +67,7 @@ public class MenuFrame extends JFrame implements ActionListener{
 	
 	private JTextArea userName;
 	private JTextArea seasionNumber;
+	private JTextArea age;
 	
 	private static float totalCost;
 	protected static String checkoutText;
@@ -85,7 +86,7 @@ public class MenuFrame extends JFrame implements ActionListener{
 	public static Color buttonColor = new Color(0x4285F4);
 	public static Color labelColor = new Color(0xD4A59A);
 
-	public MenuFrame(String userName , int seasionNumber){
+	public MenuFrame(String userName , int seasionNumber , int age){
 		//Init components
 		headerPanel = new JPanel();
 		
@@ -109,8 +110,11 @@ public class MenuFrame extends JFrame implements ActionListener{
 		
 		this.userName = new JTextArea();
 		this.seasionNumber = new JTextArea();
+		this.age = new JTextArea();
+		
 		this.userName.setEditable(false);
 		this.seasionNumber.setEditable(false);
+		this.setSize(720,820);
 		
 		startersPanel = new StartersList();
 		saladsPanel = new SaladsList();
@@ -132,6 +136,7 @@ public class MenuFrame extends JFrame implements ActionListener{
 
 		this.userName.setText("  User: " + userName + " ");
 		this.seasionNumber.setText("  Seasion Number: " + seasionNumber + " ");
+		this.age.setText("  Age: " + age + " ");
 		
 		mainPanel();
 		menubuttonBox();
@@ -211,6 +216,7 @@ public class MenuFrame extends JFrame implements ActionListener{
 		checkout.add(splitCheck);
 		
 		profile.add(userName);
+		profile.add(age);
 		profile.add(seasionNumber);
 		
 		menuBar.add(profile);

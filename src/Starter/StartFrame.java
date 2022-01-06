@@ -23,6 +23,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Menu.menuFrame.MenuFrame;
+import Menu.reservationFrame.ReservationFrame;
 import Stocks.DbManager;
 
 public class StartFrame extends JFrame implements ActionListener{
@@ -133,9 +134,8 @@ public class StartFrame extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if (e.getSource() == customer) {
-			MenuFrame menu = new MenuFrame("Gökhan Uysal" , 123);
-			menu.setBounds(this.getBounds());
-			menu.setSize(720,820);
+			ReservationFrame rf =  new ReservationFrame();
+			rf.setLocation(this.getLocation());
 			dispose();
 		}
 		else if (e.getSource() == manager) {
