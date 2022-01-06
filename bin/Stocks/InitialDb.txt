@@ -1,6 +1,6 @@
-Appetizer Plate-5
-Cheese Plate-50
-Delicatessen Plate-5
+Appetizer Plate-10
+Cheese Plate-60
+Delicatessen Plate-20
 Octopus Carpaccio-20
 Potato Chips-50
 Grilled Broccoli-40

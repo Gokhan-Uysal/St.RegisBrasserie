@@ -40,7 +40,7 @@ public class Drinks extends FoodTypes{
 		champagne = new Champagne("G.H. Mumm. Cordon Rouge Brut. Champagne" , 240 , new ImageIcon("src/Pictures/FoodImg/Drinks/g.h mumm cordon rouge.jpg") , "France");
 		red = new Red("Chateau Kaloak Red" , 850 , new ImageIcon("src/Pictures/FoodImg/Drinks/chateau kaloak red.jpg") , "Turkey");
 		white = new White("Terre Rosse, Pinot Grigio White" , 60 , new ImageIcon("src/Pictures/FoodImg/Drinks/terre rosse pinot grigio white.jpg") , "Italy");
-		rose = new Rose("Chateau d'Esclans, Whisperina Angel Rosa" , 75 , new ImageIcon("src/Pictures/FoodImg/Drinks/chateau d_esclans, whispering angels rose.jpg") , "France");
+		rose = new Rose("Chateau d'Esclans, Whisperina Angel Rose" , 75 , new ImageIcon("src/Pictures/FoodImg/Drinks/chateau d_esclans, whispering angels rose.jpg") , "France");
 		
 		drinks.add(coke);
 		drinks.add(cokeZero);

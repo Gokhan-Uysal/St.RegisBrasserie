@@ -24,7 +24,7 @@ public class Salads extends FoodTypes{
 	public Salads() {
 		salads = new ArrayList<BaseFoods>();
 		
-		gevurDağı = new GevurDağı("Gevur Daği" , 60 , new ImageIcon("src/Pictures/FoodImg/Salads/gavurdağı salatası.jpg"));
+		gevurDağı = new GevurDağı("Gevur Dagi" , 60 , new ImageIcon("src/Pictures/FoodImg/Salads/gavurdağı salatası.jpg"));
 		sezar = new Sezar("Sezar" , 65 , new ImageIcon("src/Pictures/FoodImg/Salads/sezar salatası.jpg"));
 		yedikule = new Yedikule("Yedikule" , 70 , new ImageIcon("src/Pictures/FoodImg/Salads/yedikule salatası.jpg"));
 		

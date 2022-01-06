@@ -44,10 +44,10 @@ public class FoodPanel extends JLabel implements ActionListener{
 	private JLabel infoLabel;
 	
 	//Food
-	private BaseFoods food;
+	protected BaseFoods food;
 	
 	//count
-	private int count;
+	protected int count;
 	
 	public FoodPanel(BaseFoods food){
 		
@@ -127,11 +127,6 @@ public class FoodPanel extends JLabel implements ActionListener{
 		imgLabel.setBackground(MenuFrame.labelColor);
 	}
 	
-	public void addOrderToCustomer() {
-		for (Customer thisCustomer : ManagerFrame.getCustomerList()) {
-			if (thisCustomer.getSeasionnumber() == )
-		}
-	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -145,6 +140,7 @@ public class FoodPanel extends JLabel implements ActionListener{
 			else {
 				addButton.setEnabled(false);
 			}
+			
 		}
 		
 		else if (e.getSource() == removeButton) {
@@ -155,8 +151,8 @@ public class FoodPanel extends JLabel implements ActionListener{
 				DbManager.addStock(food);
 				addButton.setEnabled(true);
 			}
-
 		}
+		
 		countLabel.setText(" " + count + " ");
 		MenuFrame.updateTotalCost();
 		ManagerFrame.updateStockInfo();

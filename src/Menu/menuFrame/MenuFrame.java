@@ -69,7 +69,7 @@ public class MenuFrame extends JFrame implements ActionListener{
 	private JMenuItem pay;
 	private JMenuItem splitCheck;
 	
-	private JTextArea userName;
+	private static JTextArea userName;
 	private JTextArea seasionNumber;
 	private JTextArea age;
 	
@@ -290,9 +290,8 @@ public class MenuFrame extends JFrame implements ActionListener{
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
 				this.dispose();
-				System.exit(0);
+				//System.exit(0);
 				 
 			}
 			else if (e.getSource() == splitCheck) {
@@ -311,9 +310,8 @@ public class MenuFrame extends JFrame implements ActionListener{
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
 				this.dispose();
-				System.exit(0);
+				//System.exit(0);
 			}
 		}
 		
@@ -332,25 +330,5 @@ public class MenuFrame extends JFrame implements ActionListener{
 
 	public static void updateTotalCost() {
 		costLabel.setText("" + getTotalCost() + "₺");
-	}
-	
-	public void addOrderToCustomer(BaseFoods food , int amount) {
-		
-		for (Customer thisCustomer : ManagerFrame.getCustomerList()) {
-			if (thisCustomer.getName() == this.userName.toString()) {
-				
-			}
-		}
-	}
-	
-	public void checkCustomerOrder(Customer customer) {
-		try {
-			for (Entry<String , Integer> order : customer.getCustomerOrder().entrySet()) {
-				
-			}
-		}
-		catch(NullPointerException e) {
-			System.err.println(e);
-		}
 	}
 }
