@@ -42,7 +42,7 @@ public class FoodPanel extends JLabel implements ActionListener{
 	private BaseFoods food;
 	
 	//count
-	private static int count;
+	private int count;
 	
 	public FoodPanel(BaseFoods food){
 		this.food = food;
