@@ -69,7 +69,6 @@ public class StartFrame extends JFrame implements ActionListener{
 		
 		this.add(layeredPane);
 		this.setTitle(title);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 		this.setVisible(true);	
 		this.setLayout(null);
@@ -137,12 +136,12 @@ public class StartFrame extends JFrame implements ActionListener{
 		if (e.getSource() == customer) {
 			ReservationFrame rf =  new ReservationFrame();
 			rf.setLocation(this.getLocation());
-			dispose();
+			//dispose();
 		}
 		else if (e.getSource() == manager) {
 			ManagerFrame mf = new ManagerFrame();
 			mf.setLocation(this.getLocation());
-			dispose();
+			//dispose();
 		}
 	}
 	

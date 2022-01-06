@@ -18,6 +18,7 @@ import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
 
 import Foods.BaseFoods;
+import SessionManager.ManagerFrame;
 import Stocks.DbManager;
 
 public class FoodPanel extends JLabel implements ActionListener{
@@ -141,7 +142,7 @@ public class FoodPanel extends JLabel implements ActionListener{
 				Db.addStock(food);
 				addButton.setEnabled(true);
 			}
-
+			
 		}
 		countLabel.setText(" " + count + " ");
 		MenuFrame.costLabel.setText("" + MenuFrame.getTotalCost() + "₺");
