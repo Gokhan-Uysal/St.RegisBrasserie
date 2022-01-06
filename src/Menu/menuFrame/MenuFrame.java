@@ -224,10 +224,15 @@ public class MenuFrame extends JFrame implements ActionListener{
 		
 	}
 	
-	public void printBill() throws FileNotFoundException {
+	public void printBill(int type) throws FileNotFoundException {
 		
-		checkoutText += "Your total is: " + totalCost;
-		
+		if (type == 0) {
+			checkoutText += "Your total is: " + totalCost;
+		}
+		else if (type == 1) {
+			checkoutText += "Your total is: " + (totalCost / Integer.parseInt(seasionNumber.getText()));
+		}
+	
 		try(Formatter output = new Formatter("src/Bills/bill.csv")){
 			output.format(checkoutText);
 		}
@@ -268,7 +273,7 @@ public class MenuFrame extends JFrame implements ActionListener{
 			if (e.getSource() == pay) {
 				System.out.println("Your bill has been printed");
 				try {
-					printBill();
+					printBill(0);
 				} 
 				catch (FileNotFoundException e1) {
 					// TODO Auto-generated catch block
@@ -291,6 +296,14 @@ public class MenuFrame extends JFrame implements ActionListener{
 				try {
 					DbManager.writeToFile();
 				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				try {
+					printBill(1);
+				} 
+				catch (FileNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}

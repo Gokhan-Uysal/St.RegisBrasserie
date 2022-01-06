@@ -50,7 +50,7 @@ public class ManagerFrame extends JFrame implements ActionListener{
 		scrollPane = new JScrollPane(mainPanel , JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED , JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		
 		this.setLayout(new BorderLayout());
-		this.setSize(new Dimension(720 , 920));
+		this.setSize(new Dimension(980 , 1080));
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLayout(new BorderLayout(10 , 10));
 		this.setVisible(true);
@@ -64,6 +64,9 @@ public class ManagerFrame extends JFrame implements ActionListener{
 		mainPanel.setLayout(new BorderLayout(10 , 10));
 		mainPanel.setBackground(Color.black);
 		//mainPanel.add(stockInfo , BorderLayout.SOUTH);
+	}
+	public void customerLabel() {
+		
 	}
 	
 	public void stockInfo() {
