@@ -17,6 +17,8 @@ import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 
 import Menu.menuFrame.MenuFrame;
+import SessionManager.Customer;
+import SessionManager.ManagerFrame;
 
 public class ReservationFrame extends JFrame implements ActionListener{
 	
@@ -131,8 +133,8 @@ public class ReservationFrame extends JFrame implements ActionListener{
 		// TODO Auto-generated method stub
 		if (e.getSource() == submitButton) {
 			try {
-				MenuFrame menu = new MenuFrame(nameInput.getText() , Integer.parseInt(bookingInput.getText()) , Integer.parseInt(ageInput.getText()));
-				menu.setLocation(this.getLocation());
+				Customer newCustomer = new Customer(nameInput.getText() , Integer.parseInt(bookingInput.getText()) , Integer.parseInt(ageInput.getText()));
+				ManagerFrame.getCustomerList().add(newCustomer);
 				dispose();
 			}
 			catch(NumberFormatException | InputMismatchException  | NullPointerException e1) {

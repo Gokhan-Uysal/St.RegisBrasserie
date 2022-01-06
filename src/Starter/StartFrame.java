@@ -24,6 +24,7 @@ import javax.swing.border.EmptyBorder;
 
 import Menu.menuFrame.MenuFrame;
 import Menu.reservationFrame.ReservationFrame;
+import SessionManager.ManagerFrame;
 import Stocks.DbManager;
 
 public class StartFrame extends JFrame implements ActionListener{
@@ -139,7 +140,10 @@ public class StartFrame extends JFrame implements ActionListener{
 			dispose();
 		}
 		else if (e.getSource() == manager) {
+			ManagerFrame mf = new ManagerFrame();
+			mf.setLocation(this.getLocation());
 			dispose();
 		}
 	}
+	
 }

@@ -17,6 +17,13 @@ import Foods.BaseFoods;
 public class DbManager implements IDbManager{
 	private ArrayList<String> lines;
 	private static Map<String , Integer> Db;
+
+	
+	public static Map<String, Integer> getDb() {
+		return Db;
+	}
+
+	private static StringBuilder stockInfoText = new StringBuilder();
 	
 	public DbManager() {
 		lines = new ArrayList<String>();
@@ -99,7 +106,6 @@ public class DbManager implements IDbManager{
 		}
 	}
 	
-
 	public static void writeToFile() throws FileNotFoundException {
 		
 		// TODO Auto-generated method stub
@@ -113,10 +119,13 @@ public class DbManager implements IDbManager{
 		}
 	}
 
-	public static void info() {
-		// TODO Auto-generated method stub
-		System.out.println("Connected to Database");
-		System.out.println("Extract Complete");
+	public static String stockInfo() {
+		for (Entry<String , Integer> stockFood : Db.entrySet()) {
+			stockInfoText.append(stockFood.getKey().trim());
+			stockInfoText.append("\t");
+			stockInfoText.append(stockFood.getValue());
+			stockInfoText.append("\n");
+		}
+		return stockInfoText.toString();
 	}
-
 }
